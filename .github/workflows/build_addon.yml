@@ -1,0 +1,99 @@
+name: build addon
+
+on:
+  push:
+    # A release is made when a tag is pushed, for example v0.5.0.
+    tags: ["*"]
+    # To build on every push to main/master, uncomment the following line:
+    # branches: [ main , master ]
+
+  # To build on pull requests, uncomment the following two lines:
+  # pull_request:
+  #   branches: [ main, master ]
+
+  # To test the build by hand: Actions tab, "build addon", Run workflow.
+  # The add-on is kept as an artifact of the run, and no release is made.
+  workflow_dispatch:
+
+jobs:
+  build:
+    # Building the add-on template as an add-on does not make sense (and fails).
+    # Do not modify this repo name with your own one! (should remain the template)
+    if: github.repository != 'nvaccess/addonTemplate'
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v6
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        enable-cache: true
+    - name: Install dependencies
+      run: |
+        sudo apt-get update  -y
+        sudo apt-get install -y gettext
+        uv sync
+
+    - name: Code checks
+      run: export SKIP=no-commit-to-branch,pyright; uv run pre-commit run --all-files
+
+    # On a tag, the tag must say the same version as buildVars.py. Without a tag, only the format is checked.
+    - name: Check the version
+      run: uv run python scripts/check_version.py "${{ github.ref_type == 'tag' && github.ref_name || '' }}"
+
+    - name: building addon
+      run: uv run scons && uv run scons pot
+
+    # Fails when a file is missing from the add-on, when compiled python files slipped in,
+    # or when a python file with strings to translate is not collected in the .pot file.
+    - name: Check the package
+      run: uv run python scripts/check_package.py
+
+    - uses: actions/upload-artifact@v7
+      with:
+        name: packaged_addon
+        path: |
+          ./*.nvda-addon
+        archive: false
+
+    - uses: actions/upload-artifact@v7
+      with:
+        name: translation_template
+        path: |
+          ./*.pot
+        archive: false
+
+  upload_release:
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.ref, 'refs/tags/') }}
+    needs: ["build"]
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v6
+    - name: download all artifacts
+      uses: actions/download-artifact@v8
+      with:
+        path: .
+        merge-multiple: true
+    - name: Display structure of downloaded files
+      run: ls -R
+    # The notes are the "## <version>" section of changelog.md when it has such sections,
+    # otherwise the whole file. The SHA256 of the add-on is added, as the Add-on Store submission asks for it.
+    - name: Prepare the release notes
+      run: |
+        python3 scripts/release_notes.py "${GITHUB_REF_NAME}" changelog.md release_notes.md
+        echo -e "\nSHA256: " >> release_notes.md
+        sha256sum *.nvda-addon >> release_notes.md
+
+    - name: Release
+      uses: softprops/action-gh-release@v3
+      with:
+        files: |
+          *.nvda-addon
+          *.pot
+        body_path: release_notes.md
+        fail_on_unmatched_files: true
+        prerelease: ${{ contains(github.ref, '-') }}
