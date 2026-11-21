@@ -292,4 +292,4 @@ The ideas, the decisions about how the add-on behaves, and all the testing with 
 ## Supported NVDA Versions
 
 - Minimum version: `2025.1.0`
-- Tested up to: `2026.1.0`
+- Tested up to: `2026.3.1`
