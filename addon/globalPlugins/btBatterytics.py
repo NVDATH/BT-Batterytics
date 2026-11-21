@@ -79,7 +79,7 @@ CONNTYPE_LE = "LE"
 CONNTYPE_UNKNOWN_TYPE = ""
 
 # Low battery monitor interval: 5 minutes
-_MONITOR_INTERVAL_MS = 3 * 60 * 1000
+_MONITOR_INTERVAL_MS = 5 * 60 * 1000
 # The sound file of each alert, in the "sounds" folder of the add-on. Replace a file to change the sound.
 _SOUND_FILES = {
 	"low_battery": "lowBattery.wav",
@@ -106,6 +106,7 @@ def _sounds_dir() -> str:
 		return os.path.join(addonHandler.getCodeAddon().path, "sounds")
 	except Exception:
 		return os.path.join(os.path.dirname(os.path.abspath(__file__)), "sounds")
+
 
 # Usage tracking (connected time between two recharges)
 _USAGE_FILE_NAME = "btBatterytics_usage.json"
@@ -402,6 +403,7 @@ def _has_system_battery() -> bool:
 # Low-level helpers
 # ---------------------------------------------------------------------------
 
+
 def _get_instance_id(device_info_set: ctypes.c_void_p, devinfo: SP_DEVINFO_DATA) -> str | None:
 	required_size = wintypes.DWORD(0)
 	SetupDiGetDeviceInstanceIdW(device_info_set, ctypes.byref(devinfo), None, 0, ctypes.byref(required_size))
@@ -596,8 +598,12 @@ def _systemtime_to_datetime(st: SYSTEMTIME) -> datetime | None:
 		if st.wYear == 0:
 			return None
 		return datetime(
-			st.wYear, st.wMonth, st.wDay,
-			st.wHour, st.wMinute, st.wSecond,
+			st.wYear,
+			st.wMonth,
+			st.wDay,
+			st.wHour,
+			st.wMinute,
+			st.wSecond,
 		)
 	except ValueError:
 		return None
@@ -656,7 +662,10 @@ def _collect_classic_connection_states() -> dict[str, tuple[bool, datetime | Non
 				hRadio=radio_handle,
 			)
 			device_info = BLUETOOTH_DEVICE_INFO(dwSize=ctypes.sizeof(BLUETOOTH_DEVICE_INFO))
-			device_find_handle = BluetoothFindFirstDevice(ctypes.byref(search_params), ctypes.byref(device_info))
+			device_find_handle = BluetoothFindFirstDevice(
+				ctypes.byref(search_params),
+				ctypes.byref(device_info),
+			)
 			if device_find_handle:
 				try:
 					while True:
@@ -710,6 +719,7 @@ def _connection_sort_rank(
 # Main collection function
 # Returns (name, battery, sort_rank, conn_type, last_used_local)
 # ---------------------------------------------------------------------------
+
 
 class BluetoothDevice(NamedTuple):
 	"""One device of a scan."""
@@ -803,6 +813,7 @@ def collect_bluetooth_battery() -> list[BluetoothDevice]:
 # ---------------------------------------------------------------------------
 # Usage tracker (full charge -> next full charge, per device)
 # ---------------------------------------------------------------------------
+
 
 class UsageTracker:
 	"""Measures how long each device is connected between two recharges.
@@ -905,22 +916,26 @@ class UsageTracker:
 						history = []
 						for record in entry.get("history") or []:
 							if isinstance(record, dict) and record.get("secs") is not None:
-								history.append({
-									"end": self._optional_number(record.get("end"), float),
-									"secs": float(record["secs"]),
-									"from": self._optional_number(record.get("from"), int),
-									"to": self._optional_number(record.get("to"), int),
-									"pos": self._optional_number(record.get("pos"), float),
-									"elapsed": bool(record.get("elapsed", False)),
-								})
+								history.append(
+									{
+										"end": self._optional_number(record.get("end"), float),
+										"secs": float(record["secs"]),
+										"from": self._optional_number(record.get("from"), int),
+										"to": self._optional_number(record.get("to"), int),
+										"pos": self._optional_number(record.get("pos"), float),
+										"elapsed": bool(record.get("elapsed", False)),
+									},
+								)
 						if not history and entry.get("last") is not None:
 							# Written before the history existed: keep its last finished cycle.
-							history.append({
-								"end": None,
-								"secs": float(entry["last"]),
-								"from": self._optional_number(entry.get("last_from"), int),
-								"to": None,
-							})
+							history.append(
+								{
+									"end": None,
+									"secs": float(entry["last"]),
+									"from": self._optional_number(entry.get("last_from"), int),
+									"to": None,
+								},
+							)
 						# Cycles saved before the manual order existed: the newest first.
 						for index, record in enumerate(history):
 							if record.get("pos") is None:
@@ -946,7 +961,10 @@ class UsageTracker:
 							"order": self._optional_number(entry.get("order"), float),
 							"elapsed": bool(entry.get("elapsed", False)),
 							"last_obs": self._optional_number(entry.get("last_obs"), float),
-							"charge_at": min(max(self._optional_number(entry.get("charge_at"), int) or 0, 0), 95),
+							"charge_at": min(
+								max(self._optional_number(entry.get("charge_at"), int) or 0, 0),
+								95,
+							),
 						}
 				return cleaned
 		except FileNotFoundError:
@@ -1113,14 +1131,16 @@ class UsageTracker:
 							entry["case_pending"] = False
 							entry["case_ask"] = True
 					if entry["active"] >= _USAGE_MIN_CYCLE_SECONDS:
-						entry["history"].append({
-							"end": recharged_at,
-							"elapsed": entry["elapsed"],
-							"pos": min((record["pos"] for record in entry["history"]), default=1.0) - 1,
-							"secs": entry["active"],
-							"from": entry["start_level"],
-							"to": entry["min_level"],
-						})
+						entry["history"].append(
+							{
+								"end": recharged_at,
+								"elapsed": entry["elapsed"],
+								"pos": min((record["pos"] for record in entry["history"]), default=1.0) - 1,
+								"secs": entry["active"],
+								"from": entry["start_level"],
+								"to": entry["min_level"],
+							},
+						)
 						changed = True
 					entry["active"] = 0.0
 					entry["cycle_start"] = recharged_at
@@ -1163,6 +1183,7 @@ class UsageTracker:
 		name). Devices that were not in the latest scan come last.
 		"""
 		with self._lock:
+
 			def display(item):
 				key, entry = item
 				return (entry["alias"] or entry["name"] or key).lower()
@@ -1191,8 +1212,11 @@ class UsageTracker:
 						"order": entry["order"],
 						"elapsed": entry["elapsed"],
 						"charge_at": entry["charge_at"],
-						**{name: (list(value) if isinstance(value, list) else value)
-							for name, value in entry.items() if name.startswith("case_")},
+						**{
+							name: (list(value) if isinstance(value, list) else value)
+							for name, value in entry.items()
+							if name.startswith("case_")
+						},
 					},
 				)
 				for key, entry in ordered
@@ -1674,7 +1698,11 @@ def _time_left_seconds(history: list[dict], current: dict) -> float | None:
 	if not records:
 		return None
 	# Down to the level at which the user usually recharges, not down to 0.
-	return max(level - current["charge_at"], 0) * sum(secs for secs, used in records) / sum(used for secs, used in records)
+	return (
+		max(level - current["charge_at"], 0)
+		* sum(secs for secs, used in records)
+		/ sum(used for secs, used in records)
+	)
 
 
 def _estimate_time_left(history: list[dict], current: dict) -> str:
@@ -1897,7 +1925,7 @@ def _build_usage_cycle_blocks(devices, cycle_order="newest"):
 						_iso(record["end"]),
 						_rounded(_cycle_drain_rate(record["secs"], record["from"], record["to"])),
 					),
-				)
+				),
 			)
 		blocks.append((key, current_row, finished_rows))
 	return blocks
@@ -2136,11 +2164,13 @@ def _format_export(fmt, title, headers, rows) -> str:
 		writer.writerows(cells)
 		return buffer.getvalue()
 	if fmt == "tsv":
+
 		def clean(cell):
 			return cell.replace("\t", " ").replace("\r", " ").replace("\n", " ")
 
 		return "".join("\t".join(clean(cell) for cell in row) + "\r\n" for row in [headers, *cells])
 	if fmt == "markdown":
+
 		def cell_text(cell):
 			return cell.replace("|", "\\|").replace("\n", " ")
 
@@ -2255,13 +2285,21 @@ class _ColumnsDialog(wx.Dialog):
 		self._lists = []
 		groups = (
 			# Translators: labels above the lists of columns that can be shown, hidden or moved
-			(_("&Summary columns (Control+Shift+Up or Down moves a column):"), summaryColumns, summaryVisible),
+			(
+				_("&Summary columns (Control+Shift+Up or Down moves a column):"),
+				summaryColumns,
+				summaryVisible,
+			),
 			(_("&Cycle columns (Control+Shift+Up or Down moves a column):"), cycleColumns, cycleVisible),
 		)
 		for label, columns, visible in groups:
 			names = {column[0]: column[1] for column in columns}
 			# The shown columns come first, in their order, then the hidden ones. The required ones are not listed.
-			shown = [column_id for column_id in visible if column_id in names and column_id not in _REQUIRED_COLUMNS]
+			shown = [
+				column_id
+				for column_id in visible
+				if column_id in names and column_id not in _REQUIRED_COLUMNS
+			]
 			hidden = [
 				column[0]
 				for column in columns
@@ -2269,7 +2307,10 @@ class _ColumnsDialog(wx.Dialog):
 			]
 			ids = shown + hidden
 			mainSizer.Add(wx.StaticText(self, label=label), 0, wx.LEFT | wx.RIGHT | wx.TOP, 8)
-			checkList = gui.nvdaControls.CustomCheckListBox(self, choices=[names[column_id] for column_id in ids])
+			checkList = gui.nvdaControls.CustomCheckListBox(
+				self,
+				choices=[names[column_id] for column_id in ids],
+			)
 			checkList.CheckedItems = list(range(len(shown)))
 			checkList.SetSelection(0)
 			mainSizer.Add(checkList, 1, wx.EXPAND | wx.ALL, 8)
@@ -2396,13 +2437,18 @@ class _RechargeLevelDialog(wx.Dialog):
 				"percent. If you recharge such a device at a level that is safe for you, enter it here. The "
 				"estimates of the statistics (full charge, time left) are then calculated down to that level, "
 				"instead of down to 0 percent, so they are much closer to the time between your recharges. "
-				"Leave 0 for a device whose level goes down evenly."
+				"Leave 0 for a device whose level goes down evenly.",
 			),
 		)
 		note.Wrap(420)
 		mainSizer.Add(note, 0, wx.ALL, 8)
 		# Translators: label of the field of the usual recharge level
-		mainSizer.Add(wx.StaticText(self, label=_("&Level at which you recharge (percent, 0 for none):")), 0, wx.LEFT | wx.RIGHT, 8)
+		mainSizer.Add(
+			wx.StaticText(self, label=_("&Level at which you recharge (percent, 0 for none):")),
+			0,
+			wx.LEFT | wx.RIGHT,
+			8,
+		)
 		self._spin = wx.SpinCtrl(self, min=0, max=95)
 		self._spin.SetValue(current)
 		mainSizer.Add(self._spin, 0, wx.EXPAND | wx.ALL, 8)
@@ -2435,7 +2481,11 @@ class _CaseDialog(wx.Dialog):
 		self._hoursSpin = self._addSpin(mainSizer, _("Earbuds &runtime per charge (hours):"), hours, 0.5, 100)
 		self._totalSpin = self._addSpin(mainSizer, _("&Total runtime with the case (hours):"), total, 1, 500)
 		self._leftSpin = self._addSpin(
-			mainSizer, _("Alert &when fewer than this many charges are left:"), case["case_alert"], 0.5, 10
+			mainSizer,
+			_("Alert &when fewer than this many charges are left:"),
+			case["case_alert"],
+			0.5,
+			10,
 		)
 		# Translators: button of the charging case dialog: fills the runtime of the earbuds from the statistics
 		self._statsButton = wx.Button(self, label=_("&Use statistics"))
@@ -2450,7 +2500,7 @@ class _CaseDialog(wx.Dialog):
 				"The charges of the case are estimated from how many times the earbuds were recharged while "
 				"connected to this computer, so the estimate is less accurate if you also use them with another "
 				"device. The connection time of the device must be measured. After you charge the case, mark it "
-				"as charged in the context menu of the statistics."
+				"as charged in the context menu of the statistics.",
 			),
 		)
 		note.Wrap(420)
@@ -2485,16 +2535,17 @@ class _CaseDialog(wx.Dialog):
 			# Translators: line of the charging case dialog. {count} is a number of charges, for example 4.2
 			lines.append(
 				_("Charges of the earbuds from a full case, from these runtimes: about {count}.").format(
-					count=_format_count(total / hours - 1)
-				)
+					count=_format_count(total / hours - 1),
+				),
 			)
 		capacity, rounds = _case_capacity(self._case)
 		if rounds:
 			# Translators: line of the charging case dialog. It replaces the figure from the runtimes in the alert.
 			lines.append(
 				_("Learned from your last {rounds} case rounds, charges per round: about {count}.").format(
-					rounds=rounds, count=_format_count(capacity)
-				)
+					rounds=rounds,
+					count=_format_count(capacity),
+				),
 			)
 		self._infoText.SetLabel("\n".join(lines))
 		self.Layout()
@@ -2546,7 +2597,9 @@ class UsageStatsDialog(wx.Dialog):
 		self._refreshing = False
 		# The ids and labels of the columns of the row texts (the State column is not one of them).
 		self._summaryTextColumns = [(column[0], column[1]) for column in _summary_columns()]
-		self._cycleTextColumns = [(column[0], column[1]) for column in _cycle_columns() if column[0] != "state"]
+		self._cycleTextColumns = [
+			(column[0], column[1]) for column in _cycle_columns() if column[0] != "state"
+		]
 		mainSizer = wx.BoxSizer(wx.VERTICAL)
 		# The two lists, each below its label, are put in this sizer in the order chosen by the user.
 		self._listsSizer = wx.BoxSizer(wx.VERTICAL)
@@ -2788,7 +2841,8 @@ class UsageStatsDialog(wx.Dialog):
 			measureItem.Check(not info["ignored"])
 			self.Bind(wx.EVT_MENU, lambda e, deviceKey=key[0]: self._toggleMeasured(deviceKey), measureItem)
 			elapsedItem = measureMenu.AppendCheckItem(
-				wx.ID_ANY, _("Count &elapsed time (for devices that are not always connected)")
+				wx.ID_ANY,
+				_("Count &elapsed time (for devices that are not always connected)"),
 			)
 			elapsedItem.Check(info["elapsed"])
 			self.Bind(wx.EVT_MENU, lambda e, deviceKey=key[0]: self._toggleElapsed(deviceKey), elapsedItem)
@@ -2895,7 +2949,10 @@ class UsageStatsDialog(wx.Dialog):
 				self.Bind(
 					wx.EVT_MENU,
 					lambda e, key=key, label=label, attribute=attribute, configKey=configKey: self._setSort(
-						attribute, configKey, key, label
+						attribute,
+						configKey,
+						key,
+						label,
 					),
 					item,
 				)
@@ -3192,7 +3249,10 @@ class UsageStatsDialog(wx.Dialog):
 				self.Bind(
 					wx.EVT_MENU,
 					lambda e, fmt=fmt, extension=extension, toFile=toFile: self._export(
-						statsList, fmt, extension, toFile
+						statsList,
+						fmt,
+						extension,
+						toFile,
 					),
 					item,
 				)
@@ -3390,6 +3450,7 @@ class UsageStatsDialog(wx.Dialog):
 		# Translators: spoken after statistics were deleted
 		ui.message(_("Deleted"))
 
+
 _stats_dialog = None
 
 
@@ -3511,51 +3572,56 @@ class BtBatteryticsSettingsPanel(gui.settingsDialogs.SettingsPanel):
 
 		# --- Filter group ---
 		self.reportConnectedCheckbox = sHelper.addItem(
-			wx.CheckBox(self, label=_("Report &connected devices"))
+			wx.CheckBox(self, label=_("Report &connected devices")),
 		)
 		self.reportConnectedCheckbox.SetValue(
-			config.conf["btBatterytics"]["reportConnected"]
+			config.conf["btBatterytics"]["reportConnected"],
 		)
 
 		self.reportDisconnectedCheckbox = sHelper.addItem(
-			wx.CheckBox(self, label=_("Report &disconnected devices"))
+			wx.CheckBox(self, label=_("Report &disconnected devices")),
 		)
 		self.reportDisconnectedCheckbox.SetValue(
-			config.conf["btBatterytics"]["reportDisconnected"]
+			config.conf["btBatterytics"]["reportDisconnected"],
 		)
 
 		self.reportUnknownCheckbox = sHelper.addItem(
-			wx.CheckBox(self, label=_("Report &unknown status devices"))
+			wx.CheckBox(self, label=_("Report &unknown status devices")),
 		)
 		self.reportUnknownCheckbox.SetValue(
-			config.conf["btBatterytics"]["reportUnknown"]
+			config.conf["btBatterytics"]["reportUnknown"],
 		)
 
 		# --- Display group ---
 		self.showConnectionTypeCheckbox = sHelper.addItem(
-			wx.CheckBox(self, label=_("Show connection &type (Classic / LE)"))
+			wx.CheckBox(self, label=_("Show connection &type (Classic / LE)")),
 		)
 		self.showConnectionTypeCheckbox.SetValue(
-			config.conf["btBatterytics"]["showConnectionType"]
+			config.conf["btBatterytics"]["showConnectionType"],
 		)
 
 		self.showConnectionDurationCheckbox = sHelper.addItem(
-			wx.CheckBox(self, label=_("Show connection &duration"))
+			wx.CheckBox(self, label=_("Show connection &duration")),
 		)
 		self.showConnectionDurationCheckbox.SetValue(
-			config.conf["btBatterytics"]["showConnectionDuration"]
+			config.conf["btBatterytics"]["showConnectionDuration"],
 		)
 
 		self.enableUsageTrackingCheckbox = sHelper.addItem(
-			wx.CheckBox(self, label=_("Speak &total connection time since the last recharge (unchecked: current connection only)"))
+			wx.CheckBox(
+				self,
+				label=_(
+					"Speak &total connection time since the last recharge (unchecked: current connection only)",
+				),
+			),
 		)
 		self.enableUsageTrackingCheckbox.SetValue(
-			config.conf["btBatterytics"]["enableUsageTracking"]
+			config.conf["btBatterytics"]["enableUsageTracking"],
 		)
 
 		# Translators: label of a check box in the settings: adds the charges left in the charging case to the report
 		self.reportCaseLeftCheckbox = sHelper.addItem(
-			wx.CheckBox(self, label=_("Show the charging case estimate in the &report"))
+			wx.CheckBox(self, label=_("Show the charging case estimate in the &report")),
 		)
 		self.reportCaseLeftCheckbox.SetValue(config.conf["btBatterytics"]["reportCaseLeft"])
 
@@ -3568,7 +3634,10 @@ class BtBatteryticsSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		sHelper.addItem(maxCyclesLabel)
 		sHelper.addItem(self.historyMaxCyclesSpinner)
 
-		maxDaysLabel = wx.StaticText(self, label=_("Delete finished cycles older than this many &days (0 keeps them all):"))
+		maxDaysLabel = wx.StaticText(
+			self,
+			label=_("Delete finished cycles older than this many &days (0 keeps them all):"),
+		)
 		self.historyMaxDaysSpinner = wx.SpinCtrl(self, min=0, max=3650)
 		self.historyMaxDaysSpinner.SetValue(config.conf["btBatterytics"]["historyMaxDays"])
 		sHelper.addItem(maxDaysLabel)
@@ -3576,17 +3645,17 @@ class BtBatteryticsSettingsPanel(gui.settingsDialogs.SettingsPanel):
 
 		# --- Low battery alert group ---
 		self.enableLowBatteryAlertCheckbox = sHelper.addItem(
-			wx.CheckBox(self, label=_("Enable &low battery alert (default for all devices)"))
+			wx.CheckBox(self, label=_("Enable &low battery alert (default for all devices)")),
 		)
 		self.enableLowBatteryAlertCheckbox.SetValue(
-			config.conf["btBatterytics"]["enableLowBatteryAlert"]
+			config.conf["btBatterytics"]["enableLowBatteryAlert"],
 		)
 		self.enableLowBatteryAlertCheckbox.Bind(wx.EVT_CHECKBOX, self._onAlertToggle)
 
 		thresholdLabel = wx.StaticText(self, label=_("Default low battery &threshold for devices (percent):"))
 		self.lowBatteryThresholdSpinner = wx.SpinCtrl(self, min=5, max=50)
 		self.lowBatteryThresholdSpinner.SetValue(
-			config.conf["btBatterytics"]["lowBatteryThreshold"]
+			config.conf["btBatterytics"]["lowBatteryThreshold"],
 		)
 		sHelper.addItem(thresholdLabel)
 		sHelper.addItem(self.lowBatteryThresholdSpinner)
@@ -3616,7 +3685,8 @@ class BtBatteryticsSettingsPanel(gui.settingsDialogs.SettingsPanel):
 		self.browseSoundsButton.Bind(wx.EVT_BUTTON, self.onBrowseSounds)
 
 		dropStepLabel = wx.StaticText(
-			self, label=_("Level drop alerts: alert each time the battery drops by this many &points:")
+			self,
+			label=_("Level drop alerts: alert each time the battery drops by this many &points:"),
 		)
 		self.dropAlertStepSpinner = wx.SpinCtrl(self, min=1, max=50)
 		self.dropAlertStepSpinner.SetValue(config.conf["btBatterytics"]["dropAlertStep"])
@@ -3625,7 +3695,9 @@ class BtBatteryticsSettingsPanel(gui.settingsDialogs.SettingsPanel):
 
 		checkSecondsLabel = wx.StaticText(
 			self,
-			label=_("Check for device connection changes every this many &seconds (for the connect and disconnect alerts):"),
+			label=_(
+				"Check for device connection changes every this many &seconds (for the connect and disconnect alerts):",
+			),
 		)
 		self.connectionCheckSpinner = wx.SpinCtrl(self, min=5, max=300)
 		self.connectionCheckSpinner.SetValue(config.conf["btBatterytics"]["connectionCheckSeconds"])
@@ -3653,35 +3725,21 @@ class BtBatteryticsSettingsPanel(gui.settingsDialogs.SettingsPanel):
 			ui.message(_("Failed to open the sounds folder."))
 
 	def onSave(self):
-		config.conf["btBatterytics"]["reportConnected"] = (
-			self.reportConnectedCheckbox.GetValue()
-		)
-		config.conf["btBatterytics"]["reportDisconnected"] = (
-			self.reportDisconnectedCheckbox.GetValue()
-		)
-		config.conf["btBatterytics"]["reportUnknown"] = (
-			self.reportUnknownCheckbox.GetValue()
-		)
-		config.conf["btBatterytics"]["showConnectionType"] = (
-			self.showConnectionTypeCheckbox.GetValue()
-		)
+		config.conf["btBatterytics"]["reportConnected"] = self.reportConnectedCheckbox.GetValue()
+		config.conf["btBatterytics"]["reportDisconnected"] = self.reportDisconnectedCheckbox.GetValue()
+		config.conf["btBatterytics"]["reportUnknown"] = self.reportUnknownCheckbox.GetValue()
+		config.conf["btBatterytics"]["showConnectionType"] = self.showConnectionTypeCheckbox.GetValue()
 		config.conf["btBatterytics"]["showConnectionDuration"] = (
 			self.showConnectionDurationCheckbox.GetValue()
 		)
-		config.conf["btBatterytics"]["enableUsageTracking"] = (
-			self.enableUsageTrackingCheckbox.GetValue()
-		)
+		config.conf["btBatterytics"]["enableUsageTracking"] = self.enableUsageTrackingCheckbox.GetValue()
 		config.conf["btBatterytics"]["reportCaseLeft"] = self.reportCaseLeftCheckbox.GetValue()
 		config.conf["btBatterytics"]["historyMaxCycles"] = self.historyMaxCyclesSpinner.GetValue()
 		config.conf["btBatterytics"]["historyMaxDays"] = self.historyMaxDaysSpinner.GetValue()
 		if UsageTracker.current is not None:
 			UsageTracker.current.prune_history()
-		config.conf["btBatterytics"]["enableLowBatteryAlert"] = (
-			self.enableLowBatteryAlertCheckbox.GetValue()
-		)
-		config.conf["btBatterytics"]["lowBatteryThreshold"] = (
-			self.lowBatteryThresholdSpinner.GetValue()
-		)
+		config.conf["btBatterytics"]["enableLowBatteryAlert"] = self.enableLowBatteryAlertCheckbox.GetValue()
+		config.conf["btBatterytics"]["lowBatteryThreshold"] = self.lowBatteryThresholdSpinner.GetValue()
 		checkedMethods = set(self.alertMethodsList.CheckedItems)
 		config.conf["btBatterytics"]["alertSpeech"] = 0 in checkedMethods
 		config.conf["btBatterytics"]["alertBeep"] = 1 in checkedMethods
@@ -3695,6 +3753,7 @@ class BtBatteryticsSettingsPanel(gui.settingsDialogs.SettingsPanel):
 # ---------------------------------------------------------------------------
 # Global Plugin
 # ---------------------------------------------------------------------------
+
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	"""Reports Bluetooth battery percentages for local devices based on user settings."""
@@ -3759,7 +3818,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def _monitor_tick(self):
 		conf = config.conf["btBatterytics"]
 		tracker = self._usage_tracker
-		watch_connections = tracker.has_alert_flag("connect_alert") or tracker.has_alert_flag("disconnect_alert")
+		watch_connections = tracker.has_alert_flag("connect_alert") or tracker.has_alert_flag(
+			"disconnect_alert",
+		)
 		# Connections are checked often, the rest only every few minutes.
 		interval = conf["connectionCheckSeconds"] * 1000 if watch_connections else _MONITOR_INTERVAL_MS
 		self._monitor_timer = wx.CallLater(interval, self._monitor_tick)
@@ -3835,7 +3896,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				if device.key not in self._alerted_devices:
 					name = self._usage_tracker.display_name(device.key, device.name)
 					alerts.append(
-						_("{name} battery low: {battery}%").format(name=name, battery=device.battery)
+						_("{name} battery low: {battery}%").format(name=name, battery=device.battery),
 					)
 					self._alerted_devices.add(device.key)
 					self._low_keys_now.add(device.key)
@@ -3868,7 +3929,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					_(
 						"Did you charge the charging case of {name}?\n\n"
 						"The case was estimated to be nearly empty, and the earbuds have been recharged since. "
-						"Choose Yes to count the charges of the case from zero again, or No to keep counting."
+						"Choose Yes to count the charges of the case from zero again, or No to keep counting.",
 					).format(name=name),
 					# Translators: title of the question about the charging case
 					_("Charging case"),
@@ -3912,8 +3973,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					# Translators: charging case alert. {count} is a number of charges, for example 0.2
 					_(
 						"{name} charging case may be nearly empty, charges left: about {count}. "
-						"Charge it together with the earbuds."
-					).format(name=name, count=_format_count(left))
+						"Charge it together with the earbuds.",
+					).format(name=name, count=_format_count(left)),
 				)
 		self._alerted_cases &= wanted
 		return texts
@@ -4027,7 +4088,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			name = self._usage_tracker.display_name(device.key, device.name)
 			if show_type and device.conn_type:
 				base = _("{name} ({conn_type}) battery {battery}%").format(
-					name=name, conn_type=device.conn_type, battery=device.battery
+					name=name,
+					conn_type=device.conn_type,
+					battery=device.battery,
 				)
 			else:
 				base = _("{name} battery {battery}%").format(name=name, battery=device.battery)
@@ -4059,7 +4122,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				base = _("{device_info} ({connected_label} {duration})").format(
 					device_info=base,
 					connected_label=duration_label,
-					duration=duration_str
+					duration=duration_str,
 				)
 
 			if conf["reportCaseLeft"]:
@@ -4068,7 +4131,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				if case_left is not None:
 					# Translators: appended to a device line. {count} is a number of charges, for example 2.2
 					base = _("{device_info} (case charges left: about {count})").format(
-						device_info=base, count=_format_count(case_left)
+						device_info=base,
+						count=_format_count(case_left),
 					)
 
 			lines.append(base)
@@ -4127,7 +4191,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@script(
 		# Translators: description shown in NVDA Input Gestures dialog
-		description=_("Press once to report battery, twice to copy to clipboard, three times to open settings."),
+		description=_(
+			"Press once to report battery, twice to copy to clipboard, three times to open settings.",
+		),
 		category=SCRIPT_CATEGORY,
 		# The default gesture is bound in __init__, because it depends on the computer.
 	)
@@ -4146,7 +4212,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			wx.CallAfter(
 				gui.mainFrame.popupSettingsDialog,
 				gui.settingsDialogs.NVDASettingsDialog,
-				BtBatteryticsSettingsPanel
+				BtBatteryticsSettingsPanel,
 			)
 			return
 		threading.Thread(

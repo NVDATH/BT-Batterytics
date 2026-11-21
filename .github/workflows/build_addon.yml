@@ -37,7 +37,7 @@ jobs:
         uv sync
 
     - name: Code checks
-      run: export SKIP=no-commit-to-branch,pyright; uv run pre-commit run --all-files
+      run: export PREK_SKIP=no-commit-to-branch,pyright; uv run prek run --all-files
 
     # On a tag, the tag must say the same version as buildVars.py. Without a tag, only the format is checked.
     - name: Check the version

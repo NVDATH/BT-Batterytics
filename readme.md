@@ -43,7 +43,7 @@ A dedicated settings page is available under NVDA → Preferences → Settings �
 - **Speak total connection time since the last recharge** — Chooses which connection time is announced, and turns the measurement on (enabled by default).
   - Checked: the total connected time counted since the device was last recharged. It is remembered across disconnections and NVDA restarts, and it works for Classic and LE devices.
   - Unchecked: only the time of the current connection session, as reported by Windows. Windows provides this value for Classic devices only, so LE devices have no connection time in this mode.
-  - **Show the charging case estimate in the report** — Add the estimated charges left in the charging case of earbuds to their line of the report (off by default, see Charging Case).
+- **Show the charging case estimate in the report** — Add the estimated charges left in the charging case of earbuds to their line of the report (off by default, see Charging Case).
 
 ### Statistics
 
