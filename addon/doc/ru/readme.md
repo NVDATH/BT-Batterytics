@@ -309,4 +309,3 @@ BT-Batterytics основан на [BlueToothBatteryReport](https://github.com/h
 
 - Минимальная: `2025.1.0`
 - Проверено до: `2026.3.1`
-

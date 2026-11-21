@@ -309,4 +309,3 @@ BT-Batterytics dựa trên [BlueToothBatteryReport](https://github.com/haitun001
 
 - Tối thiểu: `2025.1.0`
 - Đã thử đến: `2026.3.1`
-

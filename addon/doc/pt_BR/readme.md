@@ -309,4 +309,3 @@ As ideias, decisões sobre o comportamento e todos os testes com NVDA foram real
 
 - Mínima: `2025.1.0`
 - Testado até: `2026.3.1`
-

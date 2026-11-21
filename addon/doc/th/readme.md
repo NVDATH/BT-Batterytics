@@ -309,4 +309,3 @@ BT-Batterytics พัฒนาจาก [BlueToothBatteryReport](https://github.
 
 - รุ่นต่ำสุด: `2025.1.0`
 - ทดสอบถึงรุ่น: `2026.3.1`
-

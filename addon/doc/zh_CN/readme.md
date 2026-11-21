@@ -309,4 +309,3 @@ BT-Batterytics 基于 [BlueToothBatteryReport](https://github.com/haitun001/Blue
 
 - 最低版本：`2025.1.0`
 - 已测试至：`2026.3.1`
-
