@@ -79,7 +79,7 @@ CONNTYPE_LE = "LE"
 CONNTYPE_UNKNOWN_TYPE = ""
 
 # Low battery monitor interval: 5 minutes
-_MONITOR_INTERVAL_MS = 5 * 60 * 1000
+_MONITOR_INTERVAL_MS = 3 * 60 * 1000
 # The sound file of each alert, in the "sounds" folder of the add-on. Replace a file to change the sound.
 _SOUND_FILES = {
 	"low_battery": "lowBattery.wav",
@@ -946,6 +946,7 @@ class UsageTracker:
 							"order": self._optional_number(entry.get("order"), float),
 							"elapsed": bool(entry.get("elapsed", False)),
 							"last_obs": self._optional_number(entry.get("last_obs"), float),
+							"charge_at": min(max(self._optional_number(entry.get("charge_at"), int) or 0, 0), 95),
 						}
 				return cleaned
 		except FileNotFoundError:
@@ -1034,6 +1035,7 @@ class UsageTracker:
 							"order": self._next_top_order(),
 							"elapsed": False,
 							"last_obs": None,
+							"charge_at": 0,
 						}
 						changed = True
 					continue
@@ -1082,6 +1084,7 @@ class UsageTracker:
 						"order": self._next_top_order(),
 						"elapsed": False,
 						"last_obs": now,
+						"charge_at": 0,
 					}
 					changed = True
 					continue
@@ -1187,6 +1190,7 @@ class UsageTracker:
 						"rank": self._ranks.get(key),
 						"order": entry["order"],
 						"elapsed": entry["elapsed"],
+						"charge_at": entry["charge_at"],
 						**{name: (list(value) if isinstance(value, list) else value)
 							for name, value in entry.items() if name.startswith("case_")},
 					},
@@ -1378,6 +1382,15 @@ class UsageTracker:
 				entry["min_level"] = entry["start_level"] = entry["level"]
 			self._save()
 
+	def set_charge_at(self, key: str, level: int) -> None:
+		"""Set the battery level at which the user usually recharges a device, 0 for none."""
+		with self._lock:
+			entry = self._data.get(key)
+			if entry is None:
+				return
+			entry["charge_at"] = min(max(int(level), 0), 95)
+			self._save()
+
 	def secs_since_recharge(self, key: str) -> float | None:
 		"""Seconds since the last recharge of a device that counts elapsed time, None for the other devices."""
 		with self._lock:
@@ -1467,18 +1480,30 @@ def _format_timestamp(epoch: float | None) -> str:
 	return datetime.fromtimestamp(epoch).strftime("%Y-%m-%d %H:%M")
 
 
-def _full_charge_seconds(secs: float, start: int | None, end: int | None) -> float | None:
-	"""Estimated runtime on a full charge, from the battery points used during `secs` seconds."""
+def _charge_span(current: dict) -> int:
+	"""The battery points between a full battery and the level at which the user usually recharges the device.
+
+	That is 100 (the whole battery), unless the user gave a recharge level for a device whose reported level
+	does not go down evenly, for example one that stops working at 55 percent.
+	"""
+	return 100 - current["charge_at"]
+
+
+def _full_charge_seconds(secs: float, start: int | None, end: int | None, span: int = 100) -> float | None:
+	"""Estimated runtime on a full charge, from the battery points used during `secs` seconds.
+
+	With a span smaller than 100, it is the runtime from a full battery down to the usual recharge level.
+	"""
 	if start is None or end is None or secs <= 0:
 		return None
 	drop = start - end
 	if drop < _STATS_MIN_DROP:
 		return None
-	return secs * 100 / drop
+	return secs * span / drop
 
 
-def _format_full_charge(secs: float, start: int | None, end: int | None) -> str:
-	life = _full_charge_seconds(secs, start, end)
+def _format_full_charge(secs: float, start: int | None, end: int | None, span: int = 100) -> str:
+	life = _full_charge_seconds(secs, start, end, span)
 	return _format_duration(life) if life is not None else ""
 
 
@@ -1648,7 +1673,8 @@ def _time_left_seconds(history: list[dict], current: dict) -> float | None:
 	records = _usable_records(history, current)
 	if not records:
 		return None
-	return level * sum(secs for secs, used in records) / sum(used for secs, used in records)
+	# Down to the level at which the user usually recharges, not down to 0.
+	return max(level - current["charge_at"], 0) * sum(secs for secs, used in records) / sum(used for secs, used in records)
 
 
 def _estimate_time_left(history: list[dict], current: dict) -> str:
@@ -1768,6 +1794,8 @@ def _summary_detail_headers():
 		_("Case used (charges)"),
 		_("Case capacity (charges)"),
 		_("Case left (charges)"),
+		# Translators: extra column header of the exports with detailed values
+		_("Recharge level (%)"),
 	)
 
 
@@ -1812,6 +1840,7 @@ def _build_usage_cycle_blocks(devices, cycle_order="newest"):
 	blocks = []
 	for key, history, current in devices:
 		name = _display_name(current)
+		span = _charge_span(current)
 		who = (key, current["name"], current["alias"])
 		used = None
 		if current["from"] is not None and current["to"] is not None:
@@ -1825,7 +1854,7 @@ def _build_usage_cycle_blocks(devices, cycle_order="newest"):
 				_format_duration(current["secs"]),
 				_format_battery_range(current["from"], current["to"]),
 				_format_drain_rate(_cycle_drain_rate(current["secs"], current["from"], current["to"])),
-				_format_full_charge(current["secs"], current["from"], current["to"]),
+				_format_full_charge(current["secs"], current["from"], current["to"], span),
 				"",
 				_describe_basis(current["elapsed"]),
 			),
@@ -1835,7 +1864,7 @@ def _build_usage_cycle_blocks(devices, cycle_order="newest"):
 				current["from"],
 				current["to"],
 				used,
-				_whole(_full_charge_seconds(current["secs"], current["from"], current["to"])),
+				_whole(_full_charge_seconds(current["secs"], current["from"], current["to"], span)),
 				None,
 				_rounded(_cycle_drain_rate(current["secs"], current["from"], current["to"])),
 			),
@@ -1854,7 +1883,7 @@ def _build_usage_cycle_blocks(devices, cycle_order="newest"):
 						_format_duration(record["secs"]),
 						_format_battery_range(record["from"], record["to"]),
 						_format_drain_rate(_cycle_drain_rate(record["secs"], record["from"], record["to"])),
-						_format_full_charge(record["secs"], record["from"], record["to"]),
+						_format_full_charge(record["secs"], record["from"], record["to"], span),
 						_format_timestamp(record["end"]),
 						_describe_basis(bool(record.get("elapsed", False))),
 					),
@@ -1864,7 +1893,7 @@ def _build_usage_cycle_blocks(devices, cycle_order="newest"):
 						record["from"],
 						record["to"],
 						used,
-						_whole(_full_charge_seconds(record["secs"], record["from"], record["to"])),
+						_whole(_full_charge_seconds(record["secs"], record["from"], record["to"], span)),
 						_iso(record["end"]),
 						_rounded(_cycle_drain_rate(record["secs"], record["from"], record["to"])),
 					),
@@ -1903,6 +1932,17 @@ def _flatten_cycle_blocks(blocks, expanded):
 	return rows, keys
 
 
+def _describe_measuring(current: dict) -> str:
+	"""Text for the Measuring column: off, or on with the way the time is counted and the usual recharge level."""
+	if current["ignored"]:
+		return _("off")
+	parts = [_("on, elapsed time") if current["elapsed"] else _("on")]
+	if current["charge_at"]:
+		# Translators: the level at which a device is usually recharged, in the summary list, e.g. 'recharge at 70%'
+		parts.append(_("recharge at {level}%").format(level=current["charge_at"]))
+	return ", ".join(parts)
+
+
 def _describe_status(rank: int | None) -> str:
 	"""Text for the connection status (sort rank) of a device, empty if it was not in the latest scan."""
 	if rank == CONNECTION_CONNECTED:
@@ -1923,10 +1963,11 @@ def _build_usage_summary_rows(devices):
 	for key, history, current in devices:
 		# The statistics use the cycles counted as the device is counted now (connected or elapsed time).
 		history = _matching_history(history, current)
+		span = _charge_span(current)
 		durations = [record["secs"] for record in history]
 		runtimes = [
 			runtime
-			for runtime in (_full_charge_seconds(r["secs"], r["from"], r["to"]) for r in history)
+			for runtime in (_full_charge_seconds(r["secs"], r["from"], r["to"], span) for r in history)
 			if runtime is not None
 		]
 		ends = [record["end"] for record in history if record["end"] is not None]
@@ -1945,7 +1986,7 @@ def _build_usage_summary_rows(devices):
 			_display_name(current),
 			_describe_status(current["rank"]),
 			# Translators: whether the connection time of a device is measured, in the summary list
-			_("off") if current["ignored"] else _("on, elapsed time") if current["elapsed"] else _("on"),
+			_describe_measuring(current),
 			_describe_alerts(current),
 			str(len(history)),
 			_format_duration(average) if average is not None else "",
@@ -1981,6 +2022,7 @@ def _build_usage_summary_rows(devices):
 			_rounded(case_used),
 			_rounded(case_capacity),
 			_rounded(case_left),
+			current["charge_at"] or None,
 		)
 		rows.append(_StatsRow((key, None), text, detail))
 	return rows
@@ -2030,6 +2072,7 @@ def _sort_devices(devices, mode):
 	def metric(device):
 		key, history, current = device
 		history = _matching_history(history, current)
+		span = _charge_span(current)
 		if mode == "cycles":
 			return len(history)
 		if mode == "current":
@@ -2039,7 +2082,7 @@ def _sort_devices(devices, mode):
 		if mode == "full_charge":
 			runtimes = [
 				runtime
-				for runtime in (_full_charge_seconds(r["secs"], r["from"], r["to"]) for r in history)
+				for runtime in (_full_charge_seconds(r["secs"], r["from"], r["to"], span) for r in history)
 				if runtime is not None
 			]
 			return sum(runtimes) / len(runtimes) if runtimes else None
@@ -2335,6 +2378,41 @@ class _AlertLevelDialog(wx.Dialog):
 		if mode == 0:
 			return None
 		return 0 if mode == 2 else self._levelSpin.GetValue()
+
+
+class _RechargeLevelDialog(wx.Dialog):
+	"""The battery level at which the user usually recharges a device. 0 means none (the whole battery)."""
+
+	def __init__(self, parent, name, current):
+		# Translators: title of the dialog for the usual recharge level of a device. {name} is the name of the device.
+		super().__init__(parent, title=_("Usual recharge level: {name}").format(name=name))
+		mainSizer = wx.BoxSizer(wx.VERTICAL)
+		note = wx.StaticText(
+			self,
+			# Translators: explanation in the dialog of the usual recharge level
+			label=_(
+				"Some devices report a battery level that does not go down evenly. For example, the level stays "
+				"at 100 percent for a long time, then falls quickly, and the device stops working at 55 or 60 "
+				"percent. If you recharge such a device at a level that is safe for you, enter it here. The "
+				"estimates of the statistics (full charge, time left) are then calculated down to that level, "
+				"instead of down to 0 percent, so they are much closer to the time between your recharges. "
+				"Leave 0 for a device whose level goes down evenly."
+			),
+		)
+		note.Wrap(420)
+		mainSizer.Add(note, 0, wx.ALL, 8)
+		# Translators: label of the field of the usual recharge level
+		mainSizer.Add(wx.StaticText(self, label=_("&Level at which you recharge (percent, 0 for none):")), 0, wx.LEFT | wx.RIGHT, 8)
+		self._spin = wx.SpinCtrl(self, min=0, max=95)
+		self._spin.SetValue(current)
+		mainSizer.Add(self._spin, 0, wx.EXPAND | wx.ALL, 8)
+		mainSizer.Add(self.CreateButtonSizer(wx.OK | wx.CANCEL), 0, wx.ALIGN_RIGHT | wx.ALL, 8)
+		self.SetSizerAndFit(mainSizer)
+		self.CentreOnScreen()
+		self._spin.SetFocus()
+
+	def chosen(self) -> int:
+		return self._spin.GetValue()
 
 
 class _CaseDialog(wx.Dialog):
@@ -2714,6 +2792,9 @@ class UsageStatsDialog(wx.Dialog):
 			)
 			elapsedItem.Check(info["elapsed"])
 			self.Bind(wx.EVT_MENU, lambda e, deviceKey=key[0]: self._toggleElapsed(deviceKey), elapsedItem)
+			# Translators: item of the Measuring menu of a device: the level at which the user usually recharges it
+			chargeItem = measureMenu.Append(wx.ID_ANY, _("Usual recharge &level..."))
+			self.Bind(wx.EVT_MENU, lambda e: self._setChargeAt(statsList), chargeItem)
 			menu.AppendSubMenu(measureMenu, _("Meas&uring"))
 			# Translators: the Alerts submenu of the context menu of the statistics lists
 			menu.AppendSubMenu(self._alertsMenu(statsList, key[0]), _("&Alerts"))
@@ -3030,6 +3111,25 @@ class UsageStatsDialog(wx.Dialog):
 		self._reload()
 		# Translators: spoken after the charging case of a device was marked as charged
 		ui.message(_("Case marked as charged"))
+
+	def _setChargeAt(self, statsList):
+		"""Ask for the level at which the user usually recharges the device of the current row."""
+		tracker = UsageTracker.current
+		key = statsList.focusedKey()
+		if tracker is None or key is None or key[0] not in self._deviceInfo:
+			return
+		info = self._deviceInfo[key[0]]
+		dialog = _RechargeLevelDialog(self, _display_name(info), info["charge_at"])
+		try:
+			if dialog.ShowModal() != wx.ID_OK:
+				return
+			level = dialog.chosen()
+		finally:
+			dialog.Destroy()
+		tracker.set_charge_at(key[0], level)
+		self._reload()
+		# Translators: spoken after the usual recharge level of a device was set (or turned off) in the statistics
+		ui.message(_("Recharge level saved") if level else _("Recharge level off"))
 
 	def _toggleElapsed(self, deviceKey):
 		"""Count the elapsed time since the last recharge, or the connected time, of a device."""

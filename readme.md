@@ -91,6 +91,21 @@ With it:
 
 Read the battery of such a device from time to time: connect it by Bluetooth and press the hotkey. The less often you do, the less accurate the estimates are, and if the device is recharged twice between two readings, the two cycles count as one.
 
+### Devices That Do Not Go Down to 0%
+
+Some devices report a battery level that does not go down evenly. An example is a keyboard whose level stays at 100% for a long time, then falls quickly, and which stops working at 55% or 60%. You learn to recharge it earlier, for example at 70%, to be safe. The estimates of the statistics (Full charge, Left now) assume that the level goes down evenly to 0%, so for such a device they are far too long: the time that the device really lasts between your recharges is much shorter than the estimate.
+
+For these devices, choose **Usual recharge level...** in the Measuring menu of the device and enter the level at which you recharge it, for example 70. It is off (0) by default, and set for each device.
+
+With it:
+
+- Full charge (est.) becomes the time the device lasts from a full battery down to your level, which is the time between your recharges.
+- Left now (est.) becomes the time left before the battery reaches your level. It is zero when the battery is already at that level or below.
+- The drain rate, the times of the cycles and the detection of the recharges do not change.
+- The Measuring column of the summary list shows the level, for example "on, recharge at 70%".
+
+Leave it off for devices whose level goes down evenly. The estimates stay rough, because the level of such a device does not go down evenly, so the most reliable figures are the real times between recharges: Average, Shortest, Longest and Recharged every.
+
 ## Battery Statistics
 
 **View battery statistics...** in the settings panel opens a window with two lists. The command "Open the Bluetooth battery statistics" in the Input Gestures dialog opens it directly. The window shows the stored records even when the measurement is turned off.
@@ -102,7 +117,7 @@ Devices are listed in the same order as in the spoken report: connected, unknown
 One row per device:
 
 - **Status** — The connection status in the latest scan.
-- **Measuring** — Whether the time of the device is measured: off, on, or on with elapsed time.
+- **Measuring** — Whether the time of the device is measured: off, on, or on with elapsed time. The usual recharge level is added when it is set, for example "recharge at 70%".
 - **Alerts** — The alerts of the device that are on, for example "low battery 20%, level drop" or "none".
 - **Cycles** — Number of finished cycles.
 - **Average**, **Shortest**, **Longest** — Connected time of the finished cycles.
@@ -139,6 +154,7 @@ A submenu with two check items for the device:
 
 - **Measure this device** — Stops or restarts the measurement of the device. Its data is kept.
 - **Count elapsed time (for devices that are not always connected)** — Counts the time since the last recharge instead of the connected time. See Devices That Are Not Always Connected.
+- **Usual recharge level...** — The battery level at which you usually recharge the device, for devices that report the level unevenly. See Devices That Do Not Go Down to 0%.
 
 ### Alerts
 

@@ -27,6 +27,7 @@ The ideas and the testing with NVDA are by NVDATH. All the modifications to the 
 - The measurement of a device can be stopped without losing its data.
 - Devices that are not always connected, such as a tri-mode keyboard that also uses a dongle, can count the elapsed time since the last recharge instead of the connected time. It is chosen for each device in the Measuring menu. The time of a cycle runs until the battery level was last seen dropping, a recharge is placed halfway between two readings, and each cycle remembers how its time was counted.
 - Durations of two days or more are shown in days.
+- A usual recharge level for each device, for devices whose reported battery level does not go down evenly (for example a keyboard that stops working at 55 to 60% and is recharged at about 70%). The estimates of the full charge and of the time left are then calculated down to that level instead of down to 0%.
 
 ### Statistics window
 
