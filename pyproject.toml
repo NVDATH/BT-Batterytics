@@ -44,6 +44,10 @@ l10n = [
 	"markdown-link-attr-modifier==0.2.1",
 	"mdx-gh-links==0.4",
 ]
+# Tests
+test = [
+	"pytest==8.4.2",
+]
 # Lint
 lint = [
 	"uv==0.13.4",
@@ -55,6 +59,7 @@ dev = [
 	{ include-group = "build" },
 	{ include-group = "l10n" },
 	{ include-group = "lint" },
+	{ include-group = "test" },
 ]
 
 [tool.ruff]
@@ -234,3 +239,8 @@ reportMissingTypeStubs = false
 
 [tool.setuptools]
 py-modules = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# The add-on is imported as globalPlugins would do it: the package btBatterytics, without NVDA.
+pythonpath = ["addon/globalPlugins"]

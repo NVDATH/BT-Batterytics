@@ -1,0 +1,1417 @@
+# Vietnamese translation of BT-Batterytics.
+# This file is distributed under the same license as the btBatterytics package.
+msgid ""
+msgstr ""
+"Project-Id-Version: btBatterytics 1.0.0\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2026-11-21 08:42+0000\n"
+"PO-Revision-Date: 2026-11-21 14:07+0000\n"
+"Last-Translator: ChatGPT\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Add-on summary/title, usually the user visible name of the add-on
+#. Translators: Summary/title for this add-on
+#. to be shown on installation and add-on information found in add-on store
+#: addon/globalPlugins/btBatterytics.py:48
+#: addon/globalPlugins/btBatterytics.py:3568 buildVars.py:21
+msgid "BT-Batterytics"
+msgstr "BT-Batterytics"
+
+#: addon/globalPlugins/btBatterytics.py:620
+#: addon/globalPlugins/btBatterytics.py:1497
+#, python-brace-format
+msgid "{days} days"
+msgstr "{days} ngày"
+
+#. Translators: duration in minutes only, e.g. '45 min'
+#: addon/globalPlugins/btBatterytics.py:626
+#, python-brace-format
+msgid "{minutes} min"
+msgstr "{minutes} phút"
+
+#. Translators: duration in whole hours only, e.g. '2 hr'
+#: addon/globalPlugins/btBatterytics.py:629
+#, python-brace-format
+msgid "{hours} hr"
+msgstr "{hours} giờ"
+
+#. Translators: duration in hours and minutes, e.g. '1 hr 25 min'
+#: addon/globalPlugins/btBatterytics.py:631
+#, python-brace-format
+msgid "{hours} hr {minutes} min"
+msgstr "{hours} giờ {minutes} phút"
+
+#. Translators: battery level range of one cycle, from the level at its start to the lowest level, e.g. '100% to 23%'
+#: addon/globalPlugins/btBatterytics.py:1489
+#, python-brace-format
+msgid "{start}% to {end}%"
+msgstr "{start}% đến {end}%"
+
+#. Translators: battery life trend, recent cycles are about as long as earlier ones
+#: addon/globalPlugins/btBatterytics.py:1543
+msgid "stable"
+msgstr "ổn định"
+
+#. Translators: battery life trend, recent cycles are shorter than earlier ones, e.g. '12% shorter'
+#: addon/globalPlugins/btBatterytics.py:1547
+#, python-brace-format
+msgid "{percent}% shorter"
+msgstr "ngắn hơn {percent}%"
+
+#. Translators: battery life trend, recent cycles are longer than earlier ones, e.g. '8% longer'
+#: addon/globalPlugins/btBatterytics.py:1549
+#, python-brace-format
+msgid "{percent}% longer"
+msgstr "dài hơn {percent}%"
+
+#. Translators: battery points used per day, for devices that drain slowly, for example '7.2%/day'
+#: addon/globalPlugins/btBatterytics.py:1587
+#, python-brace-format
+msgid "{rate}%/day"
+msgstr "{rate}%/ngày"
+
+#. Translators: battery points used per hour, for example '4.5%/hr'
+#: addon/globalPlugins/btBatterytics.py:1589
+#, python-brace-format
+msgid "{rate}%/hr"
+msgstr "{rate}%/giờ"
+
+#. Translators: the low battery alert of a device and its level, for example 'low battery 20%'
+#: addon/globalPlugins/btBatterytics.py:1610
+#, python-brace-format
+msgid "low battery {level}%"
+msgstr "pin yếu {level}%"
+
+#. Translators: the level drop alert of a device is on, in the list of its alerts
+#: addon/globalPlugins/btBatterytics.py:1613
+msgid "level drop"
+msgstr "mức pin giảm"
+
+#. Translators: the connect alert of a device is on, in the list of its alerts
+#: addon/globalPlugins/btBatterytics.py:1616
+msgid "connect"
+msgstr "kết nối"
+
+#. Translators: the disconnect alert of a device is on, in the list of its alerts
+#: addon/globalPlugins/btBatterytics.py:1619
+msgid "disconnect"
+msgstr "ngắt kết nối"
+
+#. Translators: the charging case alert of a device is on, in the list of its alerts
+#: addon/globalPlugins/btBatterytics.py:1622
+msgid "charging case"
+msgstr "hộp sạc"
+
+#. Translators: a device has no alert, in the summary list
+#: addon/globalPlugins/btBatterytics.py:1624
+msgid "none"
+msgstr "không có"
+
+#. Translators: how the time of a cycle was counted: the time since the last recharge
+#. (for devices that are not always connected), or the time the device was connected
+#: addon/globalPlugins/btBatterytics.py:1644
+msgid "elapsed time"
+msgstr "thời gian đã trôi qua"
+
+#: addon/globalPlugins/btBatterytics.py:1644
+msgid "connected time"
+msgstr "thời gian kết nối"
+
+#: addon/globalPlugins/btBatterytics.py:1765
+#: addon/globalPlugins/btBatterytics.py:1788
+msgid "Device"
+msgstr "Thiết bị"
+
+#: addon/globalPlugins/btBatterytics.py:1766
+msgid "Status"
+msgstr "Trạng thái"
+
+#: addon/globalPlugins/btBatterytics.py:1767
+msgid "Measuring"
+msgstr "Đo thời gian"
+
+#: addon/globalPlugins/btBatterytics.py:1768
+msgid "Alerts"
+msgstr "Cảnh báo"
+
+#. Translators: names of the two statistics lists, used as the title of an export
+#: addon/globalPlugins/btBatterytics.py:1769
+#: addon/globalPlugins/btBatterytics.py:3277
+msgid "Cycles"
+msgstr "Chu kỳ"
+
+#: addon/globalPlugins/btBatterytics.py:1770
+msgid "Average"
+msgstr "Trung bình"
+
+#: addon/globalPlugins/btBatterytics.py:1771
+msgid "Shortest"
+msgstr "Ngắn nhất"
+
+#: addon/globalPlugins/btBatterytics.py:1772
+msgid "Longest"
+msgstr "Dài nhất"
+
+#: addon/globalPlugins/btBatterytics.py:1773
+#: addon/globalPlugins/btBatterytics.py:1794
+msgid "Full charge (est.)"
+msgstr "Dùng khi sạc đầy (ước tính)"
+
+#: addon/globalPlugins/btBatterytics.py:1774
+#: addon/globalPlugins/btBatterytics.py:1793
+#: addon/globalPlugins/btBatterytics.py:2074
+msgid "Drain rate"
+msgstr "Tốc độ hao pin"
+
+#: addon/globalPlugins/btBatterytics.py:1775
+msgid "Recharged every"
+msgstr "Khoảng cách giữa các lần sạc"
+
+#: addon/globalPlugins/btBatterytics.py:1776
+#: addon/globalPlugins/btBatterytics.py:2072
+msgid "Last recharge"
+msgstr "Lần sạc gần nhất"
+
+#: addon/globalPlugins/btBatterytics.py:1777
+msgid "Trend"
+msgstr "Xu hướng"
+
+#: addon/globalPlugins/btBatterytics.py:1778
+msgid "Left now (est.)"
+msgstr "Thời gian còn lại (ước tính)"
+
+#. Translators: column headers of the summary list: the charges of the charging case of earbuds
+#: addon/globalPlugins/btBatterytics.py:1780
+msgid "Case used (charges, est.)"
+msgstr "Hộp đã dùng (số lần sạc ước tính)"
+
+#: addon/globalPlugins/btBatterytics.py:1781
+msgid "Case left (charges, est.)"
+msgstr "Hộp còn lại (số lần sạc ước tính)"
+
+#: addon/globalPlugins/btBatterytics.py:1789
+msgid "Cycle"
+msgstr "Chu kỳ"
+
+#: addon/globalPlugins/btBatterytics.py:1790
+msgid "State"
+msgstr "Trạng thái hiển thị"
+
+#: addon/globalPlugins/btBatterytics.py:1791
+msgid "Duration"
+msgstr "Thời lượng"
+
+#: addon/globalPlugins/btBatterytics.py:1792
+msgid "Battery"
+msgstr "Pin"
+
+#: addon/globalPlugins/btBatterytics.py:1795
+msgid "Ended"
+msgstr "Kết thúc"
+
+#. Translators: column header of the cycle list: how the time of the cycle was counted
+#: addon/globalPlugins/btBatterytics.py:1797
+msgid "Time counted"
+msgstr "Cách tính thời gian"
+
+#: addon/globalPlugins/btBatterytics.py:1804
+#: addon/globalPlugins/btBatterytics.py:1833
+msgid "Device ID"
+msgstr "ID thiết bị"
+
+#: addon/globalPlugins/btBatterytics.py:1805
+#: addon/globalPlugins/btBatterytics.py:1834
+msgid "Device name"
+msgstr "Tên thiết bị"
+
+#: addon/globalPlugins/btBatterytics.py:1806
+#: addon/globalPlugins/btBatterytics.py:1835
+msgid "Alias"
+msgstr "Tên riêng"
+
+#: addon/globalPlugins/btBatterytics.py:1807
+msgid "Battery level (%)"
+msgstr "Mức pin (%)"
+
+#: addon/globalPlugins/btBatterytics.py:1808
+msgid "Current cycle (s)"
+msgstr "Chu kỳ hiện tại (giây)"
+
+#: addon/globalPlugins/btBatterytics.py:1809
+msgid "Average (s)"
+msgstr "Trung bình (giây)"
+
+#: addon/globalPlugins/btBatterytics.py:1810
+msgid "Shortest (s)"
+msgstr "Ngắn nhất (giây)"
+
+#: addon/globalPlugins/btBatterytics.py:1811
+msgid "Longest (s)"
+msgstr "Dài nhất (giây)"
+
+#: addon/globalPlugins/btBatterytics.py:1812
+#: addon/globalPlugins/btBatterytics.py:1840
+msgid "Full charge estimate (s)"
+msgstr "Ước tính dùng khi sạc đầy (giây)"
+
+#: addon/globalPlugins/btBatterytics.py:1813
+msgid "Recharge interval (s)"
+msgstr "Khoảng cách giữa các lần sạc (giây)"
+
+#: addon/globalPlugins/btBatterytics.py:1814
+msgid "Last recharge (ISO 8601)"
+msgstr "Lần sạc gần nhất (ISO 8601)"
+
+#: addon/globalPlugins/btBatterytics.py:1815
+msgid "Left now (s)"
+msgstr "Thời gian còn lại (giây)"
+
+#: addon/globalPlugins/btBatterytics.py:1816
+#: addon/globalPlugins/btBatterytics.py:1842
+msgid "Drain rate (points/hour)"
+msgstr "Tốc độ hao pin (điểm phần trăm/giờ)"
+
+#: addon/globalPlugins/btBatterytics.py:1817
+msgid "Alert level (%)"
+msgstr "Ngưỡng cảnh báo (%)"
+
+#: addon/globalPlugins/btBatterytics.py:1818
+msgid "Level drop alert"
+msgstr "Cảnh báo mức pin giảm"
+
+#: addon/globalPlugins/btBatterytics.py:1819
+msgid "Connect alert"
+msgstr "Cảnh báo kết nối"
+
+#: addon/globalPlugins/btBatterytics.py:1820
+msgid "Disconnect alert"
+msgstr "Cảnh báo ngắt kết nối"
+
+#. Translators: extra column headers of the exports with detailed values (charges of the charging case)
+#: addon/globalPlugins/btBatterytics.py:1822
+msgid "Case used (charges)"
+msgstr "Hộp đã dùng (số lần sạc)"
+
+#: addon/globalPlugins/btBatterytics.py:1823
+msgid "Case capacity (charges)"
+msgstr "Dung lượng hộp (số lần sạc)"
+
+#: addon/globalPlugins/btBatterytics.py:1824
+msgid "Case left (charges)"
+msgstr "Hộp còn lại (số lần sạc)"
+
+#. Translators: extra column header of the exports with detailed values
+#: addon/globalPlugins/btBatterytics.py:1826
+msgid "Recharge level (%)"
+msgstr "Mức pin để sạc lại (%)"
+
+#: addon/globalPlugins/btBatterytics.py:1836
+msgid "Duration (s)"
+msgstr "Thời lượng (giây)"
+
+#: addon/globalPlugins/btBatterytics.py:1837
+msgid "Battery at start (%)"
+msgstr "Mức pin ban đầu (%)"
+
+#: addon/globalPlugins/btBatterytics.py:1838
+msgid "Lowest battery (%)"
+msgstr "Mức pin thấp nhất (%)"
+
+#: addon/globalPlugins/btBatterytics.py:1839
+msgid "Battery used (points)"
+msgstr "Pin đã dùng (điểm phần trăm)"
+
+#: addon/globalPlugins/btBatterytics.py:1841
+msgid "Ended (ISO 8601)"
+msgstr "Kết thúc (ISO 8601)"
+
+#. Translators: value in the 'Cycle' column for the cycle that has not finished yet
+#: addon/globalPlugins/btBatterytics.py:1881
+msgid "current"
+msgstr "hiện tại"
+
+#. Translators: state of a device in the cycle list, its finished cycles are shown
+#: addon/globalPlugins/btBatterytics.py:1949
+msgid "expanded"
+msgstr "đã mở rộng"
+
+#. Translators: state of a device in the cycle list, its finished cycles are hidden
+#: addon/globalPlugins/btBatterytics.py:1952
+msgid "collapsed"
+msgstr "đã thu gọn"
+
+#: addon/globalPlugins/btBatterytics.py:1966
+msgid "off"
+msgstr "tắt"
+
+#: addon/globalPlugins/btBatterytics.py:1967
+msgid "on, elapsed time"
+msgstr "bật, tính thời gian đã trôi qua"
+
+#: addon/globalPlugins/btBatterytics.py:1967
+msgid "on"
+msgstr "bật"
+
+#. Translators: the level at which a device is usually recharged, in the summary list, e.g. 'recharge at 70%'
+#: addon/globalPlugins/btBatterytics.py:1970
+#, python-brace-format
+msgid "recharge at {level}%"
+msgstr "sạc lại ở {level}%"
+
+#. Translators: connection status shown in the statistics
+#. Translators: label shown before connection duration, e.g. 'connected 43 min'
+#: addon/globalPlugins/btBatterytics.py:1978
+#: addon/globalPlugins/btBatterytics.py:4103
+msgid "connected"
+msgstr "đã kết nối"
+
+#. Translators: connection status shown in the statistics
+#: addon/globalPlugins/btBatterytics.py:1981
+msgid "unknown"
+msgstr "không rõ"
+
+#. Translators: connection status shown in the statistics
+#: addon/globalPlugins/btBatterytics.py:1984
+msgid "disconnected"
+msgstr "chưa kết nối"
+
+#. Translators: ways to sort the devices of the statistics, in the Sort menu
+#: addon/globalPlugins/btBatterytics.py:2067
+msgid "Report order (connected first)"
+msgstr "Thứ tự báo cáo (đã kết nối trước)"
+
+#: addon/globalPlugins/btBatterytics.py:2068
+msgid "Name"
+msgstr "Tên"
+
+#: addon/globalPlugins/btBatterytics.py:2069
+msgid "Number of cycles"
+msgstr "Số chu kỳ"
+
+#: addon/globalPlugins/btBatterytics.py:2070
+msgid "Average time"
+msgstr "Thời gian trung bình"
+
+#: addon/globalPlugins/btBatterytics.py:2071
+msgid "Full charge estimate"
+msgstr "Ước tính dùng khi sạc đầy"
+
+#: addon/globalPlugins/btBatterytics.py:2073
+msgid "Current cycle time"
+msgstr "Thời gian chu kỳ hiện tại"
+
+#. Translators: a way to sort the devices in the Sort menu: the user moves them with Control+Shift+Up or Down
+#: addon/globalPlugins/btBatterytics.py:2076
+msgid "Manual (Control+Shift+Up or Down moves a device)"
+msgstr "Thủ công (Control+Shift+Mũi tên lên hoặc xuống để di chuyển thiết bị)"
+
+#. Translators: ways to sort the finished cycles of each device, in the Sort menu
+#: addon/globalPlugins/btBatterytics.py:2083
+msgid "Newest first"
+msgstr "Mới nhất trước"
+
+#: addon/globalPlugins/btBatterytics.py:2084
+msgid "Oldest first"
+msgstr "Cũ nhất trước"
+
+#: addon/globalPlugins/btBatterytics.py:2085
+msgid "Longest first"
+msgstr "Dài nhất trước"
+
+#: addon/globalPlugins/btBatterytics.py:2086
+msgid "Shortest first"
+msgstr "Ngắn nhất trước"
+
+#. Translators: a way to sort the finished cycles in the Sort menu: the user moves them with Control+Shift+Up or Down
+#: addon/globalPlugins/btBatterytics.py:2088
+msgid "Manual (Control+Shift+Up or Down moves a cycle)"
+msgstr "Thủ công (Control+Shift+Mũi tên lên hoặc xuống để di chuyển chu kỳ)"
+
+#. Translators: file formats in the Export menu of the statistics
+#: addon/globalPlugins/btBatterytics.py:2134
+msgid "Plain text"
+msgstr "Văn bản thuần"
+
+#: addon/globalPlugins/btBatterytics.py:2135
+msgid "Markdown table"
+msgstr "Bảng Markdown"
+
+#: addon/globalPlugins/btBatterytics.py:2136
+msgid "CSV"
+msgstr "CSV"
+
+#: addon/globalPlugins/btBatterytics.py:2137
+msgid "Tab-separated values (for spreadsheets)"
+msgstr "Giá trị phân cách bằng tab (cho bảng tính)"
+
+#: addon/globalPlugins/btBatterytics.py:2138
+msgid "JSON"
+msgstr "JSON"
+
+#: addon/globalPlugins/btBatterytics.py:2139
+msgid "HTML table"
+msgstr "Bảng HTML"
+
+#. Translators: title of the HTML report of the statistics
+#. Translators: title of the dialog that shows the recorded battery cycles
+#: addon/globalPlugins/btBatterytics.py:2192
+#: addon/globalPlugins/btBatterytics.py:2587
+#: addon/globalPlugins/btBatterytics.py:3469
+msgid "Bluetooth battery statistics"
+msgstr "Thống kê pin Bluetooth"
+
+#. Translators: line below the title of the HTML report, with the date and time
+#: addon/globalPlugins/btBatterytics.py:2194
+#, python-brace-format
+msgid "Exported {date}"
+msgstr "Xuất lúc {date}"
+
+#. Translators: title of the dialog to choose the columns of the statistics
+#: addon/globalPlugins/btBatterytics.py:2283
+msgid "Choose columns"
+msgstr "Chọn cột"
+
+#: addon/globalPlugins/btBatterytics.py:2289
+msgid "&Summary columns (Control+Shift+Up or Down moves a column):"
+msgstr "Cột tóm tắt (&S) (Control+Shift+Mũi tên lên hoặc xuống để di chuyển cột):"
+
+#: addon/globalPlugins/btBatterytics.py:2293
+msgid "&Cycle columns (Control+Shift+Up or Down moves a column):"
+msgstr "Cột chu kỳ (&C) (Control+Shift+Mũi tên lên hoặc xuống để di chuyển cột):"
+
+#. Translators: spoken after a column was moved in the list of columns. {number} is its new position and
+#. {total} how many columns there are.
+#. Translators: spoken after a list or a row was moved. {number} is its new position and {total} how many
+#. there are.
+#: addon/globalPlugins/btBatterytics.py:2361
+#: addon/globalPlugins/btBatterytics.py:2735
+#: addon/globalPlugins/btBatterytics.py:2773
+#, python-brace-format
+msgid "{number} of {total}"
+msgstr "{number} trên {total}"
+
+#. Translators: title of the dialog to choose the low battery alert level of a device
+#: addon/globalPlugins/btBatterytics.py:2378
+msgid "Low battery alert level"
+msgstr "Ngưỡng cảnh báo pin yếu"
+
+#. Translators: label of the list of choices for the low battery alert of a device
+#: addon/globalPlugins/btBatterytics.py:2382
+#, python-brace-format
+msgid "&Alert for {name}:"
+msgstr "Cảnh báo cho {name} (&A):"
+
+#. Translators: choices of the low battery alert of a device
+#: addon/globalPlugins/btBatterytics.py:2391
+#, python-brace-format
+msgid "Use the default level ({level}%)"
+msgstr "Dùng ngưỡng mặc định ({level}%)"
+
+#. Translators: choice of the low battery alert of a device when the default alert is turned off
+#: addon/globalPlugins/btBatterytics.py:2394
+msgid "Use the default (no alert, the low battery alert is off)"
+msgstr "Dùng mặc định (không cảnh báo, cảnh báo pin yếu đang tắt)"
+
+#: addon/globalPlugins/btBatterytics.py:2395
+msgid "Use a level of my own"
+msgstr "Dùng ngưỡng riêng"
+
+#: addon/globalPlugins/btBatterytics.py:2396
+msgid "Never alert for this device"
+msgstr "Không bao giờ cảnh báo cho thiết bị này"
+
+#. Translators: label of the field with the level of the low battery alert of a device
+#: addon/globalPlugins/btBatterytics.py:2403
+msgid "&Level (percent):"
+msgstr "Mức pin (phần trăm) (&L):"
+
+#. Translators: title of the dialog for the usual recharge level of a device. {name} is the name of the device.
+#: addon/globalPlugins/btBatterytics.py:2429
+#, python-brace-format
+msgid "Usual recharge level: {name}"
+msgstr "Mức pin thường sạc lại: {name}"
+
+#: addon/globalPlugins/btBatterytics.py:2435
+msgid ""
+"Some devices report a battery level that does not go down evenly. For "
+"example, the level stays at 100 percent for a long time, then falls quickly, "
+"and the device stops working at 55 or 60 percent. If you recharge such a "
+"device at a level that is safe for you, enter it here. The estimates of the "
+"statistics (full charge, time left) are then calculated down to that level, "
+"instead of down to 0 percent, so they are much closer to the time between "
+"your recharges. Leave 0 for a device whose level goes down evenly."
+msgstr "Một số thiết bị báo mức pin giảm không đều. Ví dụ, mức pin giữ ở 100 phần trăm rất lâu, rồi giảm nhanh và thiết bị ngừng hoạt động ở 55 hoặc 60 phần trăm. Nếu bạn sạc lại thiết bị như vậy ở mức pin an toàn với mình, hãy nhập mức đó tại đây. Các ước tính trong thống kê (dùng khi sạc đầy, thời gian còn lại) sẽ được tính đến mức đó thay vì 0 phần trăm, nên gần với thời gian giữa các lần sạc thực tế hơn. Giữ giá trị 0 cho thiết bị có mức pin giảm đều."
+
+#: addon/globalPlugins/btBatterytics.py:2447
+msgid "&Level at which you recharge (percent, 0 for none):"
+msgstr "Mức pin bạn sạc lại (phần trăm, 0 để không đặt) (&L):"
+
+#. Translators: title of the dialog for the charging case of a device. {name} is the name of the device.
+#: addon/globalPlugins/btBatterytics.py:2469
+#, python-brace-format
+msgid "Charging case: {name}"
+msgstr "Hộp sạc: {name}"
+
+#. Translators: check box of the charging case dialog: turns the estimate and the alert on for the device
+#: addon/globalPlugins/btBatterytics.py:2476
+msgid "&Alert about the charging case"
+msgstr "Cảnh báo về hộp sạc (&A)"
+
+#. Translators: labels of the fields of the charging case dialog
+#: addon/globalPlugins/btBatterytics.py:2481
+msgid "Earbuds &runtime per charge (hours):"
+msgstr "Thời lượng tai nghe mỗi lần sạc (giờ) (&R):"
+
+#: addon/globalPlugins/btBatterytics.py:2482
+msgid "&Total runtime with the case (hours):"
+msgstr "Tổng thời lượng kể cả hộp sạc (giờ) (&T):"
+
+#: addon/globalPlugins/btBatterytics.py:2485
+msgid "Alert &when fewer than this many charges are left:"
+msgstr "Cảnh báo khi số lần sạc còn lại ít hơn (&W):"
+
+#. Translators: button of the charging case dialog: fills the runtime of the earbuds from the statistics
+#: addon/globalPlugins/btBatterytics.py:2491
+msgid "&Use statistics"
+msgstr "Dùng thống kê (&U)"
+
+#: addon/globalPlugins/btBatterytics.py:2500
+msgid ""
+"The charges of the case are estimated from how many times the earbuds were "
+"recharged while connected to this computer, so the estimate is less accurate "
+"if you also use them with another device. The connection time of the device "
+"must be measured. After you charge the case, mark it as charged in the "
+"context menu of the statistics."
+msgstr "Số lần sạc của hộp được ước tính từ số lần tai nghe được sạc lại quan sát được khi dùng với máy tính này, nên kém chính xác hơn nếu bạn còn dùng với thiết bị khác. Phải bật đo thời gian kết nối của thiết bị. Sau khi sạc hộp, hãy đánh dấu đã sạc trong trình đơn ngữ cảnh của cửa sổ thống kê."
+
+#: addon/globalPlugins/btBatterytics.py:2537
+#, python-brace-format
+msgid ""
+"Charges of the earbuds from a full case, from these runtimes: about {count}."
+msgstr "Từ các thời lượng này, hộp đầy có thể sạc tai nghe khoảng {count} lần."
+
+#: addon/globalPlugins/btBatterytics.py:2545
+#, python-brace-format
+msgid ""
+"Learned from your last {rounds} case rounds, charges per round: about "
+"{count}."
+msgstr "Học từ {rounds} vòng dùng hộp gần nhất của bạn, mỗi vòng sạc được khoảng {count} lần."
+
+#. Translators: error in the charging case dialog
+#: addon/globalPlugins/btBatterytics.py:2563
+msgid ""
+"The total runtime with the case must be longer than the runtime of the "
+"earbuds."
+msgstr "Tổng thời lượng kể cả hộp sạc phải dài hơn thời lượng của tai nghe."
+
+#. Translators: title of the question about the charging case
+#: addon/globalPlugins/btBatterytics.py:2564
+#: addon/globalPlugins/btBatterytics.py:3935
+msgid "Charging case"
+msgstr "Hộp sạc"
+
+#. Translators: label of the list with one summary line per device
+#: addon/globalPlugins/btBatterytics.py:2611
+msgid "&Summary per device:"
+msgstr "Tóm tắt từng thiết bị (&S):"
+
+#. Translators: label of the list with every recorded battery cycle
+#: addon/globalPlugins/btBatterytics.py:2618
+msgid "&Cycles:"
+msgstr "Chu kỳ (&C):"
+
+#: addon/globalPlugins/btBatterytics.py:2626
+msgid "&Close"
+msgstr "Đóng (&C)"
+
+#. Translators: spoken when trying to move a cycle without the manual sort
+#: addon/globalPlugins/btBatterytics.py:2751
+msgid "To move cycles, choose Manual in the Sort menu, under Cycles by"
+msgstr "Để di chuyển chu kỳ, chọn Thủ công trong trình đơn Sắp xếp, mục Sắp xếp chu kỳ theo"
+
+#. Translators: spoken when trying to move a device without the manual sort
+#: addon/globalPlugins/btBatterytics.py:2758
+msgid "To move devices, choose Manual in the Sort menu, under Devices by"
+msgstr "Để di chuyển thiết bị, chọn Thủ công trong trình đơn Sắp xếp, mục Sắp xếp thiết bị theo"
+
+#. Translators: spoken when trying to expand a device that has no finished cycles
+#: addon/globalPlugins/btBatterytics.py:2783
+msgid "No earlier cycles"
+msgstr "Không có chu kỳ trước"
+
+#. Translators: spoken after the finished cycles of a device were hidden
+#: addon/globalPlugins/btBatterytics.py:2788
+msgid "Collapsed"
+msgstr "Đã thu gọn"
+
+#. Translators: spoken after the finished cycles of a device were shown
+#: addon/globalPlugins/btBatterytics.py:2792
+msgid "Expanded"
+msgstr "Đã mở rộng"
+
+#. Translators: items of the Measuring menu of a device in the statistics. The second one counts the time
+#. since the last recharge, for devices that are not always connected (for example a keyboard that also
+#. uses a dongle), instead of the time the device is connected.
+#: addon/globalPlugins/btBatterytics.py:2840
+msgid "&Measure this device"
+msgstr "Đo thời gian thiết bị này (&M)"
+
+#: addon/globalPlugins/btBatterytics.py:2845
+msgid "Count &elapsed time (for devices that are not always connected)"
+msgstr "Tính thời gian đã trôi qua (cho thiết bị không luôn kết nối) (&E)"
+
+#. Translators: item of the Measuring menu of a device: the level at which the user usually recharges it
+#: addon/globalPlugins/btBatterytics.py:2850
+msgid "Usual recharge &level..."
+msgstr "Mức pin thường sạc lại... (&L)"
+
+#: addon/globalPlugins/btBatterytics.py:2852
+msgid "Meas&uring"
+msgstr "Đo thời gian (&U)"
+
+#. Translators: the Alerts submenu of the context menu of the statistics lists
+#: addon/globalPlugins/btBatterytics.py:2854
+msgid "&Alerts"
+msgstr "Cảnh báo (&A)"
+
+#. Translators: items of the context menu of the statistics lists, some followed by their keys
+#: addon/globalPlugins/btBatterytics.py:2856
+msgid "&Select"
+msgstr "Chọn (&S)"
+
+#: addon/globalPlugins/btBatterytics.py:2857
+msgid "S&ort"
+msgstr "Sắp xếp (&O)"
+
+#: addon/globalPlugins/btBatterytics.py:2858
+msgid "Choose &columns..."
+msgstr "Chọn cột... (&C)"
+
+#. Translators: items of the context menu of the cycle list, followed by their key
+#: addon/globalPlugins/btBatterytics.py:2863
+msgid "Co&llapse\tSpace"
+msgstr "Thu gọn (&L)\tSpace"
+
+#: addon/globalPlugins/btBatterytics.py:2863
+msgid "&Expand\tSpace"
+msgstr "Mở rộng (&E)\tSpace"
+
+#: addon/globalPlugins/btBatterytics.py:2867
+msgid "Rena&me device...\tF2"
+msgstr "Đổi tên thiết bị... (&M)\tF2"
+
+#. Translators: items of the context menu of the statistics lists, followed by their keys
+#: addon/globalPlugins/btBatterytics.py:2873
+msgid "Move row u&p\tCtrl+Shift+Up"
+msgstr "Di chuyển hàng lên (&P)\tCtrl+Shift+Up"
+
+#: addon/globalPlugins/btBatterytics.py:2874
+msgid "Move row do&wn\tCtrl+Shift+Down"
+msgstr "Di chuyển hàng xuống (&W)\tCtrl+Shift+Down"
+
+#: addon/globalPlugins/btBatterytics.py:2877
+msgid "Move list &before\tCtrl+Shift+Left"
+msgstr "Di chuyển danh sách ra trước (&B)\tCtrl+Shift+Left"
+
+#: addon/globalPlugins/btBatterytics.py:2878
+msgid "Move l&ist after\tCtrl+Shift+Right"
+msgstr "Di chuyển danh sách ra sau (&I)\tCtrl+Shift+Right"
+
+#: addon/globalPlugins/btBatterytics.py:2881
+msgid "Copy &row\tCtrl+C"
+msgstr "Sao chép hàng (&R)\tCtrl+C"
+
+#: addon/globalPlugins/btBatterytics.py:2882
+msgid "Copy &device\tCtrl+Shift+C"
+msgstr "Sao chép thiết bị (&D)\tCtrl+Shift+C"
+
+#. Translators: item of the context menu of the statistics lists, followed by its key
+#: addon/globalPlugins/btBatterytics.py:2887
+msgid "Mar&k case charged\tCtrl+Shift+R"
+msgstr "Đánh dấu hộp đã sạc (&K)\tCtrl+Shift+R"
+
+#: addon/globalPlugins/btBatterytics.py:2889
+msgid "E&xport\tCtrl+E"
+msgstr "Xuất (&X)\tCtrl+E"
+
+#: addon/globalPlugins/btBatterytics.py:2890
+msgid "Re&fresh\tF5"
+msgstr "Làm mới (&F)\tF5"
+
+#: addon/globalPlugins/btBatterytics.py:2892
+msgid "Dele&te row\tCtrl+Delete"
+msgstr "Xóa hàng (&T)\tCtrl+Delete"
+
+#: addon/globalPlugins/btBatterytics.py:2893
+msgid "Delete de&vice\tCtrl+Shift+Delete"
+msgstr "Xóa thiết bị (&V)\tCtrl+Shift+Delete"
+
+#: addon/globalPlugins/btBatterytics.py:2903
+msgid "&Toggle current row\tCtrl+Space"
+msgstr "Đảo trạng thái chọn hàng hiện tại (&T)\tCtrl+Space"
+
+#: addon/globalPlugins/btBatterytics.py:2904
+msgid "Select &all\tCtrl+A"
+msgstr "Chọn tất cả (&A)\tCtrl+A"
+
+#: addon/globalPlugins/btBatterytics.py:2905
+msgid "Select &none"
+msgstr "Bỏ chọn tất cả (&N)"
+
+#: addon/globalPlugins/btBatterytics.py:2906
+msgid "&Invert selection"
+msgstr "Đảo vùng chọn (&I)"
+
+#: addon/globalPlugins/btBatterytics.py:2907
+msgid "Select rows of this &device"
+msgstr "Chọn các hàng của thiết bị này (&D)"
+
+#. Translators: spoken after changing the selection in a statistics list
+#: addon/globalPlugins/btBatterytics.py:2935
+#, python-brace-format
+msgid "{count} selected"
+msgstr "Đã chọn {count}"
+
+#. Translators: the two groups of the Sort menu of the statistics
+#: addon/globalPlugins/btBatterytics.py:2941
+msgid "&Devices by"
+msgstr "Sắp xếp thiết bị theo (&D)"
+
+#: addon/globalPlugins/btBatterytics.py:2942
+msgid "&Cycles by"
+msgstr "Sắp xếp chu kỳ theo (&C)"
+
+#. Translators: spoken after choosing how the statistics are sorted
+#: addon/globalPlugins/btBatterytics.py:2973
+#, python-brace-format
+msgid "Sorted by {order}"
+msgstr "Đã sắp xếp theo {order}"
+
+#. Translators: spoken when the statistics start refreshing
+#: addon/globalPlugins/btBatterytics.py:3003
+msgid "Refreshing"
+msgstr "Đang làm mới"
+
+#: addon/globalPlugins/btBatterytics.py:3023
+#: addon/globalPlugins/btBatterytics.py:4148
+msgid "Bluetooth battery detection failed."
+msgstr "Không phát hiện được mức pin Bluetooth."
+
+#. Translators: spoken after the statistics were refreshed
+#: addon/globalPlugins/btBatterytics.py:3027
+msgid "Refreshed"
+msgstr "Đã làm mới"
+
+#. Translators: question when renaming a device in the statistics. {name} is the name Windows gave.
+#: addon/globalPlugins/btBatterytics.py:3042
+#, python-brace-format
+msgid "Name for {name} (leave empty to use the name Windows gave):"
+msgstr "Tên cho {name} (để trống để dùng tên Windows đặt):"
+
+#. Translators: title of the dialog to rename a device in the statistics
+#: addon/globalPlugins/btBatterytics.py:3044
+msgid "Rename device"
+msgstr "Đổi tên thiết bị"
+
+#. Translators: spoken after a device was renamed in the statistics
+#: addon/globalPlugins/btBatterytics.py:3054
+msgid "Renamed"
+msgstr "Đã đổi tên"
+
+#. Translators: spoken after the low battery alert level of a device was chosen
+#: addon/globalPlugins/btBatterytics.py:3080
+msgid "Alert level set"
+msgstr "Đã đặt ngưỡng cảnh báo"
+
+#: addon/globalPlugins/btBatterytics.py:3087
+msgid "Battery level &drops"
+msgstr "Mức pin giảm (&D)"
+
+#: addon/globalPlugins/btBatterytics.py:3088
+msgid "Device &connects"
+msgstr "Thiết bị kết nối (&C)"
+
+#: addon/globalPlugins/btBatterytics.py:3089
+msgid "Device d&isconnects"
+msgstr "Thiết bị ngắt kết nối (&I)"
+
+#: addon/globalPlugins/btBatterytics.py:3096
+msgid "Low battery &level..."
+msgstr "Ngưỡng pin yếu... (&L)"
+
+#. Translators: item of the Alerts menu of a device in the statistics: opens the charging case dialog
+#: addon/globalPlugins/btBatterytics.py:3099
+msgid "C&harging case..."
+msgstr "Hộp sạc... (&H)"
+
+#. Translators: spoken after turning an alert of a device on or off
+#: addon/globalPlugins/btBatterytics.py:3115
+msgid "Level drop alert on"
+msgstr "Đã bật cảnh báo mức pin giảm"
+
+#: addon/globalPlugins/btBatterytics.py:3115
+msgid "Level drop alert off"
+msgstr "Đã tắt cảnh báo mức pin giảm"
+
+#: addon/globalPlugins/btBatterytics.py:3116
+msgid "Connect alert on"
+msgstr "Đã bật cảnh báo kết nối"
+
+#: addon/globalPlugins/btBatterytics.py:3116
+msgid "Connect alert off"
+msgstr "Đã tắt cảnh báo kết nối"
+
+#: addon/globalPlugins/btBatterytics.py:3117
+msgid "Disconnect alert on"
+msgstr "Đã bật cảnh báo ngắt kết nối"
+
+#: addon/globalPlugins/btBatterytics.py:3117
+msgid "Disconnect alert off"
+msgstr "Đã tắt cảnh báo ngắt kết nối"
+
+#. Translators: spoken after the charging case of a device was set in the statistics
+#: addon/globalPlugins/btBatterytics.py:3144
+msgid "Charging case saved"
+msgstr "Đã lưu thiết lập hộp sạc"
+
+#. Translators: spoken when marking the case as charged for a device that has no charging case alert
+#: addon/globalPlugins/btBatterytics.py:3165
+msgid "The charging case alert is off for this device"
+msgstr "Cảnh báo hộp sạc đang tắt cho thiết bị này"
+
+#. Translators: spoken after the charging case of a device was marked as charged
+#. Translators: spoken after the user said that the charging case was charged
+#: addon/globalPlugins/btBatterytics.py:3170
+#: addon/globalPlugins/btBatterytics.py:3941
+msgid "Case marked as charged"
+msgstr "Đã đánh dấu hộp đã sạc"
+
+#. Translators: spoken after the usual recharge level of a device was set (or turned off) in the statistics
+#: addon/globalPlugins/btBatterytics.py:3189
+msgid "Recharge level saved"
+msgstr "Đã lưu mức pin để sạc lại"
+
+#: addon/globalPlugins/btBatterytics.py:3189
+msgid "Recharge level off"
+msgstr "Đã tắt mức pin để sạc lại"
+
+#. Translators: spoken after choosing how the time of a device is counted
+#: addon/globalPlugins/btBatterytics.py:3202
+msgid "Counting elapsed time"
+msgstr "Đang tính thời gian đã trôi qua"
+
+#: addon/globalPlugins/btBatterytics.py:3202
+msgid "Counting connected time"
+msgstr "Đang tính thời gian kết nối"
+
+#. Translators: spoken after choosing whether the connection time of a device is measured
+#: addon/globalPlugins/btBatterytics.py:3224
+msgid "Measuring on"
+msgstr "Đã bật đo thời gian"
+
+#: addon/globalPlugins/btBatterytics.py:3224
+msgid "Measuring off"
+msgstr "Đã tắt đo thời gian"
+
+#. Translators: what the Export menu exports, one choice is checked
+#: addon/globalPlugins/btBatterytics.py:3230
+#, python-brace-format
+msgid "Selected rows ({count})"
+msgstr "Các hàng được chọn ({count})"
+
+#: addon/globalPlugins/btBatterytics.py:3231
+msgid "Current device"
+msgstr "Thiết bị hiện tại"
+
+#: addon/globalPlugins/btBatterytics.py:3232
+msgid "All rows"
+msgstr "Tất cả các hàng"
+
+#. Translators: a check box item of the Export menu. When checked, exports have extra columns with
+#. exact values (seconds, percent, ISO dates) and the identity of the device.
+#: addon/globalPlugins/btBatterytics.py:3241
+msgid "Include &detailed values"
+msgstr "Gồm các giá trị chi tiết (&D)"
+
+#: addon/globalPlugins/btBatterytics.py:3245
+msgid "&Copy to clipboard as"
+msgstr "Sao chép vào bộ nhớ tạm dưới dạng (&C)"
+
+#: addon/globalPlugins/btBatterytics.py:3245
+msgid "&Save to a file as"
+msgstr "Lưu vào tệp dưới dạng (&S)"
+
+#. Translators: an item of the Export menu: make an HTML report and open it in the web browser
+#: addon/globalPlugins/btBatterytics.py:3261
+msgid "&Open as an HTML report in the browser"
+msgstr "Mở báo cáo HTML trong trình duyệt (&O)"
+
+#: addon/globalPlugins/btBatterytics.py:3277
+msgid "Summary per device"
+msgstr "Tóm tắt từng thiết bị"
+
+#. Translators: spoken when there is nothing to export
+#: addon/globalPlugins/btBatterytics.py:3305
+#: addon/globalPlugins/btBatterytics.py:3346
+msgid "Nothing to export"
+msgstr "Không có gì để xuất"
+
+#. Translators: spoken after the statistics were copied to the clipboard
+#: addon/globalPlugins/btBatterytics.py:3311
+#, python-brace-format
+msgid "Copied {count} rows"
+msgstr "Đã sao chép {count} hàng"
+
+#: addon/globalPlugins/btBatterytics.py:3313
+#: addon/globalPlugins/btBatterytics.py:3378
+#: addon/globalPlugins/btBatterytics.py:4176
+msgid "Failed to copy to clipboard."
+msgstr "Không sao chép được vào bộ nhớ tạm."
+
+#. Translators: title of the dialog to choose the file of an export
+#: addon/globalPlugins/btBatterytics.py:3318
+msgid "Save statistics"
+msgstr "Lưu thống kê"
+
+#. Translators: spoken after the statistics were saved to a file
+#: addon/globalPlugins/btBatterytics.py:3328
+#, python-brace-format
+msgid "Saved {count} rows"
+msgstr "Đã lưu {count} hàng"
+
+#. Translators: spoken when saving the statistics to a file failed
+#: addon/globalPlugins/btBatterytics.py:3338
+msgid "Failed to save the file."
+msgstr "Không lưu được tệp."
+
+#. Translators: spoken when the HTML report could not be opened in the browser
+#: addon/globalPlugins/btBatterytics.py:3356
+msgid "Failed to open the report."
+msgstr "Không mở được báo cáo."
+
+#. Translators: spoken after copying everything about a device from the statistics
+#: addon/globalPlugins/btBatterytics.py:3381
+msgid "Device copied"
+msgstr "Đã sao chép thiết bị"
+
+#. Translators: spoken after copying a row of the statistics
+#: addon/globalPlugins/btBatterytics.py:3384
+msgid "Row copied"
+msgstr "Đã sao chép hàng"
+
+#. Translators: first line of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3419
+#, python-brace-format
+msgid "Device: {name}"
+msgstr "Thiết bị: {name}"
+
+#. Translators: line of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3425
+#, python-brace-format
+msgid "Devices to delete with all their data: {count}"
+msgstr "Thiết bị sẽ xóa cùng toàn bộ dữ liệu: {count}"
+
+#. Translators: line of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3428
+#, python-brace-format
+msgid "Current cycles to restart from zero: {count}"
+msgstr "Chu kỳ hiện tại sẽ bắt đầu lại từ không: {count}"
+
+#. Translators: line of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3431
+#, python-brace-format
+msgid "Finished cycles to delete: {count}"
+msgstr "Chu kỳ đã hoàn thành sẽ xóa: {count}"
+
+#. Translators: end of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3433
+msgid "This cannot be undone. Continue?"
+msgstr "Không thể hoàn tác thao tác này. Tiếp tục?"
+
+#. Translators: title of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3437
+msgid "Confirm deletion"
+msgstr "Xác nhận xóa"
+
+#. Translators: spoken after statistics were deleted
+#: addon/globalPlugins/btBatterytics.py:3451
+msgid "Deleted"
+msgstr "Đã xóa"
+
+#: addon/globalPlugins/btBatterytics.py:3468
+msgid "No battery statistics have been recorded yet."
+msgstr "Chưa ghi thống kê pin nào."
+
+#: addon/globalPlugins/btBatterytics.py:3575
+msgid "Report &connected devices"
+msgstr "Báo cáo thiết bị đã kết nối (&C)"
+
+#: addon/globalPlugins/btBatterytics.py:3582
+msgid "Report &disconnected devices"
+msgstr "Báo cáo thiết bị chưa kết nối (&D)"
+
+#: addon/globalPlugins/btBatterytics.py:3589
+msgid "Report &unknown status devices"
+msgstr "Báo cáo thiết bị không rõ trạng thái (&U)"
+
+#: addon/globalPlugins/btBatterytics.py:3597
+msgid "Show connection &type (Classic / LE)"
+msgstr "Hiện loại kết nối (Classic / LE) (&T)"
+
+#: addon/globalPlugins/btBatterytics.py:3604
+msgid "Show connection &duration"
+msgstr "Hiện thời lượng kết nối (&D)"
+
+#: addon/globalPlugins/btBatterytics.py:3614
+msgid ""
+"Speak &total connection time since the last recharge (unchecked: current "
+"connection only)"
+msgstr "Đọc tổng thời gian kết nối từ lần sạc gần nhất (bỏ chọn: chỉ lần kết nối hiện tại) (&T)"
+
+#: addon/globalPlugins/btBatterytics.py:3624
+msgid "Show the charging case estimate in the &report"
+msgstr "Hiện ước tính hộp sạc trong báo cáo (&R)"
+
+#: addon/globalPlugins/btBatterytics.py:3628
+msgid "&View battery statistics..."
+msgstr "Xem thống kê pin... (&V)"
+
+#: addon/globalPlugins/btBatterytics.py:3631
+msgid "Keep at most this many finished cycles per &device:"
+msgstr "Số chu kỳ đã hoàn thành tối đa giữ lại cho mỗi thiết bị (&D):"
+
+#: addon/globalPlugins/btBatterytics.py:3639
+msgid "Delete finished cycles older than this many &days (0 keeps them all):"
+msgstr "Xóa chu kỳ đã hoàn thành cũ hơn số ngày này (0 giữ tất cả) (&D):"
+
+#: addon/globalPlugins/btBatterytics.py:3648
+msgid "Enable &low battery alert (default for all devices)"
+msgstr "Bật cảnh báo pin yếu (mặc định cho mọi thiết bị) (&L)"
+
+#: addon/globalPlugins/btBatterytics.py:3655
+msgid "Default low battery &threshold for devices (percent):"
+msgstr "Ngưỡng pin yếu mặc định cho thiết bị (phần trăm) (&T):"
+
+#. --- How alerts are given: the low battery alert, the level drop alerts and the connection alerts ---
+#: addon/globalPlugins/btBatterytics.py:3664
+msgid "Alert &methods (for all alerts):"
+msgstr "Phương thức cảnh báo (cho mọi cảnh báo) (&M):"
+
+#: addon/globalPlugins/btBatterytics.py:3669
+msgid "Speak the alert"
+msgstr "Đọc cảnh báo"
+
+#: addon/globalPlugins/btBatterytics.py:3670
+msgid "Play a double beep"
+msgstr "Phát hai tiếng bíp"
+
+#: addon/globalPlugins/btBatterytics.py:3671
+msgid "Play the sound of the alert (a .wav file in the sounds folder)"
+msgstr "Phát âm thanh cảnh báo (tệp .wav trong thư mục sounds)"
+
+#. Translators: label of a button in the settings that opens the folder with the sound files of the alerts
+#: addon/globalPlugins/btBatterytics.py:3684
+msgid "&Browse sound folder..."
+msgstr "Mở thư mục âm thanh... (&B)"
+
+#: addon/globalPlugins/btBatterytics.py:3689
+msgid ""
+"Level drop alerts: alert each time the battery drops by this many &points:"
+msgstr "Cảnh báo mức pin giảm: cảnh báo mỗi khi pin giảm từng này điểm phần trăm (&P):"
+
+#: addon/globalPlugins/btBatterytics.py:3699
+msgid ""
+"Check for device connection changes every this many &seconds (for the "
+"connect and disconnect alerts):"
+msgstr "Kiểm tra thay đổi kết nối thiết bị sau mỗi số giây này (cho cảnh báo kết nối và ngắt kết nối) (&S):"
+
+#. Translators: spoken when the folder with the sound files of the alerts could not be opened
+#: addon/globalPlugins/btBatterytics.py:3725
+msgid "Failed to open the sounds folder."
+msgstr "Không mở được thư mục âm thanh."
+
+#: addon/globalPlugins/btBatterytics.py:3877
+#, python-brace-format
+msgid "{name} connected"
+msgstr "{name} đã kết nối"
+
+#: addon/globalPlugins/btBatterytics.py:3879
+#, python-brace-format
+msgid "{name} disconnected"
+msgstr "{name} đã ngắt kết nối"
+
+#: addon/globalPlugins/btBatterytics.py:3899
+#, python-brace-format
+msgid "{name} battery low: {battery}%"
+msgstr "{name} pin yếu: {battery}%"
+
+#: addon/globalPlugins/btBatterytics.py:3930
+#, python-brace-format
+msgid ""
+"Did you charge the charging case of {name}?\n"
+"\n"
+"The case was estimated to be nearly empty, and the earbuds have been "
+"recharged since. Choose Yes to count the charges of the case from zero "
+"again, or No to keep counting."
+msgstr "Bạn có sạc cả hộp sạc của {name} không?\n\nTrước đó, hộp được ước tính gần cạn, và sau đó tai nghe đã được sạc lại. Chọn Có để tính lại số lần sạc hộp đã dùng từ không, hoặc Không để tiếp tục tính."
+
+#: addon/globalPlugins/btBatterytics.py:3975
+#, python-brace-format
+msgid ""
+"{name} charging case may be nearly empty, charges left: about {count}. "
+"Charge it together with the earbuds."
+msgstr "{name} hộp sạc có thể gần cạn, số lần sạc còn lại: khoảng {count}. Hãy sạc cùng tai nghe."
+
+#: addon/globalPlugins/btBatterytics.py:4004
+#: addon/globalPlugins/btBatterytics.py:4096
+#, python-brace-format
+msgid "{name} battery {battery}%"
+msgstr "{name} pin {battery}%"
+
+#. Translators: Title of the low battery alert dialog
+#: addon/globalPlugins/btBatterytics.py:4017
+msgid "Bluetooth Battery Low"
+msgstr "Pin thiết bị Bluetooth yếu"
+
+#: addon/globalPlugins/btBatterytics.py:4090
+#, python-brace-format
+msgid "{name} ({conn_type}) battery {battery}%"
+msgstr "{name} ({conn_type}) pin {battery}%"
+
+#. Translators: label shown before the time since the last recharge, e.g. 'since the last recharge 12 days'
+#: addon/globalPlugins/btBatterytics.py:4109
+msgid "since the last recharge"
+msgstr "từ lần sạc gần nhất"
+
+#. Translators: appended to a device line, e.g. 'FIIO EH11 battery 85% (connected 43 min)'
+#: addon/globalPlugins/btBatterytics.py:4122
+#, python-brace-format
+msgid "{device_info} ({connected_label} {duration})"
+msgstr "{device_info} ({connected_label} {duration})"
+
+#. Translators: appended to a device line. {count} is a number of charges, for example 2.2
+#: addon/globalPlugins/btBatterytics.py:4133
+#, python-brace-format
+msgid "{device_info} (case charges left: about {count})"
+msgstr "{device_info} (hộp còn sạc được: khoảng {count} lần)"
+
+#: addon/globalPlugins/btBatterytics.py:4159
+msgid "No Bluetooth battery information is available."
+msgstr "Không có thông tin pin Bluetooth."
+
+#: addon/globalPlugins/btBatterytics.py:4164
+msgid "No matching Bluetooth devices found based on your settings."
+msgstr "Không tìm thấy thiết bị Bluetooth phù hợp với thiết lập của bạn."
+
+#: addon/globalPlugins/btBatterytics.py:4174
+msgid "Battery report copied to clipboard."
+msgstr "Đã sao chép báo cáo pin vào bộ nhớ tạm."
+
+#. Translators: description shown in NVDA Input Gestures dialog
+#: addon/globalPlugins/btBatterytics.py:4184
+msgid "Open the Bluetooth battery statistics."
+msgstr "Mở thống kê pin Bluetooth."
+
+#: addon/globalPlugins/btBatterytics.py:4195
+msgid ""
+"Press once to report battery, twice to copy to clipboard, three times to "
+"open settings."
+msgstr "Nhấn một lần để báo mức pin, hai lần để sao chép vào bộ nhớ tạm, ba lần để mở thiết lập."
+
+#: buildVars.py:25
+msgid ""
+"BT-Batterytics reports the battery level of your Bluetooth devices, "
+"remembers how long each device lasts between two recharges, and shows "
+"statistics about it. It is a modified version of BlueToothBatteryReport by "
+"haitun001 and cary-rowen.\n"
+"\n"
+"Battery report\n"
+"Press NVDA+Alt+B (NVDA+Shift+B on a computer that has no battery, such as a "
+"desktop PC) to hear the battery level of every Bluetooth device that Windows "
+"can read it from. Press twice to copy the report to the clipboard, three "
+"times to open the settings. Devices are announced in this order: connected, "
+"unknown, disconnected. You choose which of these groups are announced, and "
+"whether the connection type (Classic or LE) and the connection time are "
+"included. Only devices that report their battery level to Windows can be "
+"listed.\n"
+"\n"
+"Connection time and statistics\n"
+"The add-on measures how long each device is connected between two recharges, "
+"so you can see how long it really lasts on one charge. For a device that is "
+"often not connected, such as a keyboard that also uses a dongle, it can "
+"count the elapsed time instead. The statistics window shows, for every "
+"device and every recharge cycle, the connected time, the battery used, the "
+"drain rate, the estimated runtime on a full charge, the trend over the "
+"latest cycles and the estimated time left now. You can give devices names of "
+"your own, sort the lists and choose their columns, and export the statistics "
+"to the clipboard or to a file as plain text, Markdown, CSV, tab-separated "
+"values, JSON or HTML, or open them as a report in your web browser. Open the "
+"window from the settings, or assign a key to the command Open the Bluetooth "
+"battery statistics in the Input Gestures dialog. For a device whose battery "
+"level does not go down evenly, you can set the level at which you usually "
+"recharge it, so that the estimates stay realistic.\n"
+"\n"
+"Alerts\n"
+"Each device can have its own alerts: low battery, battery level drops, "
+"device connects and device disconnects. For true wireless earbuds, the add-"
+"on can also estimate how many charges are left in the charging case and warn "
+"you when to charge it. An alert can be spoken, played as a double beep, or "
+"played as a sound file, and the sound files can be replaced with your own. A "
+"low battery alert also shows a warning dialog. A background check runs every "
+"five minutes, and more often while a device has a connect or disconnect "
+"alert.\n"
+"\n"
+"Everything is set in NVDA settings, in the BT-Batterytics category. The "
+"records stay on your computer, in the NVDA configuration folder.\n"
+"\n"
+"Credits: the ideas and the testing with NVDA are by NVDATH. All the "
+"modifications to the code of the original add-on were written by Claude, an "
+"AI assistant made by Anthropic, following the instructions of NVDATH."
+msgstr "BT-Batterytics báo mức pin của thiết bị Bluetooth, ghi nhớ thời lượng mỗi thiết bị dùng giữa hai lần sạc và hiển thị thống kê. Đây là bản sửa đổi của BlueToothBatteryReport do haitun001 và cary-rowen phát triển.\n\nBáo cáo pin\nNhấn NVDA+Alt+B (NVDA+Shift+B trên máy tính không có pin, như máy để bàn) để nghe mức pin của mọi thiết bị Bluetooth mà Windows đọc được. Nhấn hai lần để sao chép báo cáo vào bộ nhớ tạm, ba lần để mở thiết lập. Thứ tự đọc: đã kết nối, không rõ, chưa kết nối. Bạn chọn nhóm cần đọc và có kèm loại kết nối (Classic hoặc LE), thời gian kết nối hay không. Chỉ liệt kê được thiết bị báo mức pin cho Windows.\n\nThời gian kết nối và thống kê\nTiện ích đo thời gian mỗi thiết bị kết nối giữa hai lần sạc, giúp bạn biết thời lượng thực tế mỗi lần sạc. Với thiết bị thường không kết nối, chẳng hạn bàn phím cũng dùng đầu thu, có thể tính thời gian đã trôi qua thay thế. Cửa sổ thống kê hiển thị thời gian kết nối, pin đã dùng, tốc độ hao pin, ước tính dùng khi sạc đầy, xu hướng các chu kỳ gần nhất và thời gian còn lại cho từng thiết bị, từng chu kỳ sạc. Bạn có thể đặt tên riêng, sắp xếp danh sách, chọn cột và xuất thống kê vào bộ nhớ tạm hoặc tệp dạng văn bản thuần, Markdown, CSV, giá trị phân cách bằng tab, JSON hoặc HTML, hay mở báo cáo trong trình duyệt. Mở cửa sổ từ thiết lập hoặc gán phím cho lệnh Mở thống kê pin Bluetooth trong hộp thoại Cử chỉ đầu vào. Với thiết bị có mức pin giảm không đều, bạn có thể đặt mức pin thường sạc lại để ước tính sát thực tế.\n\nCảnh báo\nMỗi thiết bị có thể có cảnh báo riêng: pin yếu, mức pin giảm, kết nối và ngắt kết nối. Với tai nghe không dây hoàn toàn, tiện ích còn ước tính số lần sạc còn lại trong hộp và báo khi cần sạc hộp. Có thể đọc cảnh báo, phát hai tiếng bíp hoặc phát tệp âm thanh; bạn có thể thay tệp bằng âm thanh riêng. Cảnh báo pin yếu còn hiện hộp thoại cảnh báo. Kiểm tra nền chạy mỗi năm phút và thường xuyên hơn khi có thiết bị bật cảnh báo kết nối hoặc ngắt kết nối.\n\nMọi thiết lập nằm trong danh mục BT-Batterytics của thiết lập NVDA. Bản ghi ở trên máy bạn, trong thư mục cấu hình NVDA.\n\nGhi công: ý tưởng và thử nghiệm với NVDA do NVDATH thực hiện. Mọi sửa đổi mã nguồn tiện ích gốc do Claude, trợ lý AI của Anthropic, viết theo chỉ dẫn của NVDATH."
+
+#. CHANGELOG-START
+#: buildVars.py:75
+msgid ""
+"First release as BT-Batterytics, a modified version of "
+"BlueToothBatteryReport 0.4 by haitun001 and cary-rowen. It keeps its own "
+"single-file code: it does not include the refactoring of version 0.4.\n"
+"\n"
+"The ideas and the testing with NVDA are by NVDATH. All the modifications to "
+"the code were written by Claude, an AI assistant made by Anthropic, "
+"following the instructions of NVDATH.\n"
+"\n"
+"### Reporting\n"
+"\n"
+"- The report runs in a background thread, so NVDA does not freeze while the "
+"devices are scanned.\n"
+"- Press the hotkey once to read the report, twice to copy it to the "
+"clipboard, three times to open the settings.\n"
+"- The default hotkey is NVDA+Shift+B on a computer without a battery (a "
+"desktop PC) and NVDA+Alt+B on a computer with a battery (a laptop or "
+"tablet), so that NVDA's own battery command is left alone. The choice is "
+"made when NVDA starts. If Windows cannot tell, a battery is assumed.\n"
+"- A settings panel in NVDA settings. Devices to report can be chosen by "
+"status: connected, unknown, disconnected.\n"
+"- Optional connection type (Classic or LE) after the device name.\n"
+"- Optional connection duration, as reported by Windows (Bluetooth Classic "
+"devices only).\n"
+"- Optional total connection time since the last recharge, remembered across "
+"disconnections and NVDA restarts, which also works for LE devices.\n"
+"- Optional estimate of the charges left in the charging case of true "
+"wireless earbuds.\n"
+"- Names that you give to devices are used in the report and in the alerts.\n"
+"- Fixed: the Bluetooth radio handle could be closed twice while reading the "
+"connection states.\n"
+"\n"
+"### Connection time tracking\n"
+"\n"
+"- The connected time of each device is counted between two recharges. A "
+"recharge is detected when the battery rises at least 15 points above the "
+"lowest level of the cycle, so devices that never reach 100% work too.\n"
+"- Time is not counted while the device is disconnected, while the battery "
+"level rises, or over gaps longer than 15 minutes (for example while the "
+"computer sleeps).\n"
+"- For Bluetooth Classic devices the total is never smaller than the "
+"connection time reported by Windows.\n"
+"- Finished cycles are saved in `btBatterytics_usage.json` in the NVDA "
+"configuration folder. Limits can be set for the number of cycles kept per "
+"device and for their age.\n"
+"- Devices are identified by their Bluetooth address: devices with the same "
+"name do not share data, and a renamed device keeps its data.\n"
+"- The measurement of a device can be stopped without losing its data.\n"
+"- Devices that are not always connected, such as a tri-mode keyboard that "
+"also uses a dongle, can count the elapsed time since the last recharge "
+"instead of the connected time. It is chosen for each device in the Measuring "
+"menu. The time of a cycle runs until the battery level was last seen "
+"dropping, a recharge is placed halfway between two readings, and each cycle "
+"remembers how its time was counted.\n"
+"- Durations of two days or more are shown in days.\n"
+"- A usual recharge level for each device, for devices whose reported battery "
+"level does not go down evenly (for example a keyboard that stops working at "
+"55 to 60% and is recharged at about 70%). The estimates of the full charge "
+"and of the time left are then calculated down to that level instead of down "
+"to 0%.\n"
+"\n"
+"### Statistics window\n"
+"\n"
+"- Opened from the settings or by a command of the Input Gestures dialog (no "
+"gesture by default).\n"
+"- A summary list with one row per device and a cycle list. Both are virtual "
+"lists, so they stay fast with many cycles.\n"
+"- Summary columns: status, measuring, alerts, cycles, average, shortest, "
+"longest, full charge estimate, drain rate, recharge interval, last recharge, "
+"trend, time left estimate. Cycle columns: cycle, state, duration, battery, "
+"drain rate, full charge estimate, end.\n"
+"- In the cycle list only the cycle in progress of each device is shown. "
+"Space, double-click or the context menu expands or collapses its finished "
+"cycles.\n"
+"- Devices are listed in the order of the spoken report. F5 scans again and "
+"updates the window.\n"
+"- The columns of both lists can be shown, hidden and moved (Control+Shift+Up "
+"and Control+Shift+Down in the Choose columns dialog). The order is used to "
+"show, copy and export them.\n"
+"- Manual sort of the devices and of the finished cycles: Control+Shift+Up "
+"and Control+Shift+Down move a device, or a finished cycle of an expanded "
+"device. A new device is put first.\n"
+"- Control+Shift+Left and Control+Shift+Right move the two lists, and the "
+"window opens on the first one.\n"
+"- Context menu and keys (in the menu, the commands without a key come "
+"first): select (several rows, Control+Space, Control+A), copy a row or a "
+"device (Control+C, Control+Shift+C), delete a row or a device after a "
+"question (Control+Delete, Control+Shift+Delete), rename a device (F2), "
+"measure or not, choose the columns, sort the devices and the cycles (the "
+"choices are remembered), alerts of the device.\n"
+"- Export (Control+E) of the selected rows, the current device or all rows, "
+"copied to the clipboard or saved to a file, as plain text, Markdown, CSV, "
+"tab-separated values, JSON or HTML, or opened as an HTML report in the "
+"browser. Detailed values (exact seconds, percentages, ISO dates, device "
+"identity) are included by default. Only the standard library of Python is "
+"used.\n"
+"\n"
+"### Alerts\n"
+"\n"
+"- Low battery alert. The setting is the default for all devices, with a "
+"default level. Each device can follow it, have a level of its own (it alerts "
+"even if the default is off), or never alert. The choice is made in a dialog "
+"of the Alerts menu of the device.\n"
+"- Level drop alert for each device: alerts each time the battery has dropped "
+"by a number of points (10 by default).\n"
+"- Connect and disconnect alerts for each device. The devices are checked "
+"every few seconds while one of these alerts is on.\n"
+"- The alert methods are chosen once for all alerts and can be combined: "
+"speech (on by default), a double beep, and the sound of the alert, a .wav "
+"file of the `sounds` folder of the add-on (`lowBattery.wav`, "
+"`levelDrop.wav`, `deviceConnected.wav`, `deviceDisconnected.wav`, "
+"`chargingCase.wav`). A beep replaces a missing file.\n"
+"- The low battery alert also shows a warning dialog.\n"
+"- A level drop alert is not given together with a low battery alert of the "
+"same device, and the sounds of several alerts play one after another.\n"
+"- A Browse sound folder button in the settings opens the folder of the sound "
+"files, to replace them. The sounds that come with the add-on are from "
+"Pixabay, see the readme for the credits.\n"
+"- Charging case estimate for true wireless earbuds, off by default and set "
+"for each device. The add-on counts how many times the case charged the "
+"earbuds from the recharges it sees, and alerts when the earbuds are low and "
+"the case is nearly empty, so that you charge both together. After the alert, "
+"the next time the earbuds are seen recharged, a question asks whether you "
+"charged the case, and Yes counts from zero again (Mark case charged, "
+"Control+Shift+R, does the same at any time). The typical size of the case is "
+"learned from your rounds. It is an estimate, and works best if the earbuds "
+"are used mainly with this computer.\n"
+"\n"
+"### Changed\n"
+"\n"
+"- Renamed to BT-Batterytics (add-on ID `btBatterytics`). The data and the "
+"settings saved under the former name are taken over the first time the add-"
+"on runs.\n"
+"- The alert sound mode (beep or sound file) of earlier versions is replaced "
+"by the alert methods.\n"
+"- The \"Only report connected devices\" option of version 0.4 is replaced by "
+"one option for each status."
+msgstr "Bản phát hành đầu tiên mang tên BT-Batterytics, sửa đổi từ BlueToothBatteryReport 0.4 của haitun001 và cary-rowen. Giữ mã nguồn riêng trong một tệp, không bao gồm việc tái cấu trúc của bản 0.4.\n\nÝ tưởng và thử nghiệm với NVDA do NVDATH thực hiện. Mọi sửa đổi mã nguồn do Claude, trợ lý AI của Anthropic, viết theo chỉ dẫn của NVDATH.\n\nBáo cáo\n\n• Báo cáo chạy trong luồng nền nên NVDA không bị treo khi quét thiết bị.\n• Nhấn phím tắt một lần để đọc báo cáo, hai lần để sao chép vào bộ nhớ tạm, ba lần để mở thiết lập.\n• Phím tắt mặc định là NVDA+Shift+B trên máy không có pin (máy để bàn) và NVDA+Alt+B trên máy có pin (máy xách tay hoặc máy tính bảng), để giữ nguyên lệnh pin của NVDA. Lựa chọn được thực hiện khi NVDA khởi động. Nếu Windows không xác định được, coi như có pin.\n• Có bảng thiết lập trong thiết lập NVDA. Chọn thiết bị cần báo cáo theo trạng thái: đã kết nối, không rõ, chưa kết nối.\n• Tùy chọn hiện loại kết nối (Classic hoặc LE) sau tên thiết bị.\n• Tùy chọn hiện thời lượng kết nối do Windows báo (chỉ Bluetooth Classic).\n• Tùy chọn tổng thời gian kết nối từ lần sạc gần nhất, được nhớ qua ngắt kết nối và khởi động lại NVDA, cũng dùng được cho LE.\n• Tùy chọn ước tính số lần sạc còn lại trong hộp tai nghe không dây hoàn toàn.\n• Tên bạn đặt cho thiết bị được dùng trong báo cáo và cảnh báo.\n• Sửa lỗi: handle bộ thu phát Bluetooth có thể bị đóng hai lần khi đọc trạng thái kết nối.\n\nTheo dõi thời gian kết nối\n\n• Tính thời gian mỗi thiết bị kết nối giữa hai lần sạc. Phát hiện sạc lại khi pin tăng ít nhất 15 điểm phần trăm so với mức thấp nhất của chu kỳ, nên thiết bị không bao giờ đạt 100% vẫn dùng được.\n• Không tính thời gian thiết bị ngắt kết nối, khi mức pin tăng hoặc khoảng quan sát gián đoạn trên 15 phút (ví dụ máy ngủ).\n• Với Bluetooth Classic, tổng thời gian không bao giờ nhỏ hơn thời gian kết nối Windows báo.\n• Lưu chu kỳ đã hoàn thành trong btBatterytics_usage.json ở thư mục cấu hình NVDA. Có thể giới hạn số chu kỳ giữ lại cho mỗi thiết bị và tuổi bản ghi.\n• Nhận diện theo địa chỉ Bluetooth: thiết bị trùng tên không dùng chung dữ liệu; đổi tên vẫn giữ dữ liệu.\n• Có thể dừng đo một thiết bị mà không mất dữ liệu.\n• Thiết bị không luôn kết nối, như bàn phím ba chế độ cũng dùng đầu thu, có thể tính thời gian đã trôi qua từ lần sạc gần nhất thay cho thời gian kết nối. Chọn riêng từng thiết bị trong trình đơn Đo thời gian. Chu kỳ tính đến lần cuối thấy mức pin giảm; thời điểm sạc đặt ở giữa hai lần đọc; mỗi chu kỳ nhớ cách tính của mình.\n• Thời lượng từ hai ngày được hiển thị bằng ngày.\n• Đặt mức pin thường sạc lại riêng cho thiết bị báo pin giảm không đều (như bàn phím dừng ở 55–60% và được sạc ở khoảng 70%). Ước tính dùng khi sạc đầy và thời gian còn lại tính đến mức đó thay vì 0%.\n\nCửa sổ thống kê\n\n• Mở từ thiết lập hoặc lệnh trong hộp thoại Cử chỉ đầu vào (mặc định chưa gán phím).\n• Danh sách tóm tắt có một hàng mỗi thiết bị và danh sách chu kỳ. Cả hai là danh sách ảo nên vẫn nhanh khi có nhiều chu kỳ.\n• Cột tóm tắt: trạng thái, đo thời gian, cảnh báo, chu kỳ, trung bình, ngắn nhất, dài nhất, ước tính dùng khi sạc đầy, tốc độ hao pin, khoảng cách giữa các lần sạc, lần sạc gần nhất, xu hướng, ước tính thời gian còn lại. Cột chu kỳ: chu kỳ, trạng thái hiển thị, thời lượng, pin, tốc độ hao pin, ước tính dùng khi sạc đầy, kết thúc.\n• Danh sách chu kỳ chỉ hiện chu kỳ đang diễn ra của mỗi thiết bị. Nhấn Space, nhấp đúp hoặc dùng trình đơn ngữ cảnh để mở rộng hay thu gọn các chu kỳ đã hoàn thành.\n• Thiết bị được xếp theo thứ tự báo cáo đọc. F5 quét lại và cập nhật cửa sổ.\n• Có thể hiện, ẩn và di chuyển cột của cả hai danh sách (Control+Shift+Mũi tên lên hoặc xuống trong hộp thoại Chọn cột). Thứ tự được dùng khi hiển thị, sao chép và xuất.\n• Sắp xếp thủ công thiết bị và chu kỳ đã hoàn thành: Control+Shift+Mũi tên lên hoặc xuống di chuyển thiết bị, hoặc chu kỳ đã hoàn thành của thiết bị đã mở rộng. Thiết bị mới được đặt đầu.\n• Control+Shift+Mũi tên trái và phải di chuyển hai danh sách, cửa sổ mở tại danh sách đầu tiên.\n• Trình đơn ngữ cảnh và phím (lệnh không có phím đứng trước): chọn (nhiều hàng, Control+Space, Control+A), sao chép hàng hoặc thiết bị (Control+C, Control+Shift+C), xóa hàng hoặc thiết bị sau xác nhận (Control+Delete, Control+Shift+Delete), đổi tên (F2), bật/tắt đo, chọn cột, sắp xếp thiết bị và chu kỳ (ghi nhớ lựa chọn), cảnh báo của thiết bị.\n• Xuất (Control+E) hàng được chọn, thiết bị hiện tại hoặc mọi hàng vào bộ nhớ tạm hay tệp dạng văn bản thuần, Markdown, CSV, giá trị phân cách bằng tab, JSON hoặc HTML, hoặc mở báo cáo HTML trong trình duyệt. Mặc định kèm giá trị chi tiết (giây chính xác, phần trăm, ngày ISO, định danh thiết bị). Chỉ dùng thư viện chuẩn Python.\n\nCảnh báo\n\n• Cảnh báo pin yếu. Thiết lập là mặc định cho mọi thiết bị, kèm ngưỡng mặc định. Mỗi thiết bị có thể dùng mặc định, đặt ngưỡng riêng (vẫn báo dù mặc định tắt) hoặc không bao giờ báo. Chọn trong hộp thoại thuộc trình đơn Cảnh báo của thiết bị.\n• Cảnh báo mức pin giảm riêng từng thiết bị: báo mỗi lần pin giảm một số điểm phần trăm (mặc định 10).\n• Cảnh báo kết nối và ngắt kết nối riêng từng thiết bị. Kiểm tra mỗi vài giây khi bật một trong hai cảnh báo.\n• Phương thức cảnh báo chọn chung và kết hợp được: giọng nói (mặc định bật), hai tiếng bíp và âm thanh cảnh báo, tệp .wav trong thư mục sounds của tiện ích (lowBattery.wav, levelDrop.wav, deviceConnected.wav, deviceDisconnected.wav, chargingCase.wav). Tệp thiếu được thay bằng tiếng bíp.\n• Cảnh báo pin yếu còn hiện hộp thoại cảnh báo.\n• Không phát cảnh báo mức pin giảm cùng cảnh báo pin yếu của cùng thiết bị; các âm thanh cảnh báo phát lần lượt.\n• Nút Mở thư mục âm thanh trong thiết lập mở thư mục để thay tệp. Âm thanh đi kèm từ Pixabay; xem ghi công trong README.\n• Ước tính hộp sạc cho tai nghe không dây hoàn toàn, mặc định tắt và đặt riêng từng thiết bị. Tiện ích đếm số lần hộp sạc tai nghe từ các lần sạc quan sát được, cảnh báo khi tai nghe pin yếu và hộp gần cạn để sạc cả hai. Sau cảnh báo, lần tiếp theo thấy tai nghe sạc lại sẽ hỏi bạn có sạc hộp không; Có bắt đầu tính lại từ không (Đánh dấu hộp đã sạc, Control+Shift+R, làm tương tự bất cứ lúc nào). Dung lượng điển hình được học từ các vòng dùng hộp của bạn. Đây là ước tính, tốt nhất khi tai nghe chủ yếu dùng với máy này.\n\nThay đổi\n\n• Đổi tên thành BT-Batterytics (ID tiện ích btBatterytics). Dữ liệu và thiết lập dưới tên cũ được tiếp nhận khi chạy lần đầu.\n• Chế độ âm cảnh báo (bíp hoặc tệp âm thanh) của bản trước được thay bằng các phương thức cảnh báo.\n• Tùy chọn “Chỉ báo cáo thiết bị đã kết nối” của bản 0.4 được thay bằng tùy chọn riêng cho mỗi trạng thái."
+

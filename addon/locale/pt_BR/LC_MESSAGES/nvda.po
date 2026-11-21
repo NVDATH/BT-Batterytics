@@ -1,0 +1,1417 @@
+# Brazilian Portuguese translation of BT-Batterytics.
+# This file is distributed under the same license as the btBatterytics package.
+msgid ""
+msgstr ""
+"Project-Id-Version: btBatterytics 1.0.0\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2026-11-21 08:42+0000\n"
+"PO-Revision-Date: 2026-11-21 14:07+0000\n"
+"Last-Translator: ChatGPT\n"
+"Language-Team: Brazilian Portuguese\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. Add-on summary/title, usually the user visible name of the add-on
+#. Translators: Summary/title for this add-on
+#. to be shown on installation and add-on information found in add-on store
+#: addon/globalPlugins/btBatterytics.py:48
+#: addon/globalPlugins/btBatterytics.py:3568 buildVars.py:21
+msgid "BT-Batterytics"
+msgstr "BT-Batterytics"
+
+#: addon/globalPlugins/btBatterytics.py:620
+#: addon/globalPlugins/btBatterytics.py:1497
+#, python-brace-format
+msgid "{days} days"
+msgstr "{days} dias"
+
+#. Translators: duration in minutes only, e.g. '45 min'
+#: addon/globalPlugins/btBatterytics.py:626
+#, python-brace-format
+msgid "{minutes} min"
+msgstr "{minutes} min"
+
+#. Translators: duration in whole hours only, e.g. '2 hr'
+#: addon/globalPlugins/btBatterytics.py:629
+#, python-brace-format
+msgid "{hours} hr"
+msgstr "{hours} h"
+
+#. Translators: duration in hours and minutes, e.g. '1 hr 25 min'
+#: addon/globalPlugins/btBatterytics.py:631
+#, python-brace-format
+msgid "{hours} hr {minutes} min"
+msgstr "{hours} h {minutes} min"
+
+#. Translators: battery level range of one cycle, from the level at its start to the lowest level, e.g. '100% to 23%'
+#: addon/globalPlugins/btBatterytics.py:1489
+#, python-brace-format
+msgid "{start}% to {end}%"
+msgstr "{start}% a {end}%"
+
+#. Translators: battery life trend, recent cycles are about as long as earlier ones
+#: addon/globalPlugins/btBatterytics.py:1543
+msgid "stable"
+msgstr "estável"
+
+#. Translators: battery life trend, recent cycles are shorter than earlier ones, e.g. '12% shorter'
+#: addon/globalPlugins/btBatterytics.py:1547
+#, python-brace-format
+msgid "{percent}% shorter"
+msgstr "{percent}% menor"
+
+#. Translators: battery life trend, recent cycles are longer than earlier ones, e.g. '8% longer'
+#: addon/globalPlugins/btBatterytics.py:1549
+#, python-brace-format
+msgid "{percent}% longer"
+msgstr "{percent}% maior"
+
+#. Translators: battery points used per day, for devices that drain slowly, for example '7.2%/day'
+#: addon/globalPlugins/btBatterytics.py:1587
+#, python-brace-format
+msgid "{rate}%/day"
+msgstr "{rate}%/dia"
+
+#. Translators: battery points used per hour, for example '4.5%/hr'
+#: addon/globalPlugins/btBatterytics.py:1589
+#, python-brace-format
+msgid "{rate}%/hr"
+msgstr "{rate}%/h"
+
+#. Translators: the low battery alert of a device and its level, for example 'low battery 20%'
+#: addon/globalPlugins/btBatterytics.py:1610
+#, python-brace-format
+msgid "low battery {level}%"
+msgstr "bateria fraca {level}%"
+
+#. Translators: the level drop alert of a device is on, in the list of its alerts
+#: addon/globalPlugins/btBatterytics.py:1613
+msgid "level drop"
+msgstr "queda de nível"
+
+#. Translators: the connect alert of a device is on, in the list of its alerts
+#: addon/globalPlugins/btBatterytics.py:1616
+msgid "connect"
+msgstr "conexão"
+
+#. Translators: the disconnect alert of a device is on, in the list of its alerts
+#: addon/globalPlugins/btBatterytics.py:1619
+msgid "disconnect"
+msgstr "desconexão"
+
+#. Translators: the charging case alert of a device is on, in the list of its alerts
+#: addon/globalPlugins/btBatterytics.py:1622
+msgid "charging case"
+msgstr "estojo de recarga"
+
+#. Translators: a device has no alert, in the summary list
+#: addon/globalPlugins/btBatterytics.py:1624
+msgid "none"
+msgstr "nenhum"
+
+#. Translators: how the time of a cycle was counted: the time since the last recharge
+#. (for devices that are not always connected), or the time the device was connected
+#: addon/globalPlugins/btBatterytics.py:1644
+msgid "elapsed time"
+msgstr "tempo decorrido"
+
+#: addon/globalPlugins/btBatterytics.py:1644
+msgid "connected time"
+msgstr "tempo conectado"
+
+#: addon/globalPlugins/btBatterytics.py:1765
+#: addon/globalPlugins/btBatterytics.py:1788
+msgid "Device"
+msgstr "Dispositivo"
+
+#: addon/globalPlugins/btBatterytics.py:1766
+msgid "Status"
+msgstr "Status"
+
+#: addon/globalPlugins/btBatterytics.py:1767
+msgid "Measuring"
+msgstr "Medição"
+
+#: addon/globalPlugins/btBatterytics.py:1768
+msgid "Alerts"
+msgstr "Alertas"
+
+#. Translators: names of the two statistics lists, used as the title of an export
+#: addon/globalPlugins/btBatterytics.py:1769
+#: addon/globalPlugins/btBatterytics.py:3277
+msgid "Cycles"
+msgstr "Ciclos"
+
+#: addon/globalPlugins/btBatterytics.py:1770
+msgid "Average"
+msgstr "Média"
+
+#: addon/globalPlugins/btBatterytics.py:1771
+msgid "Shortest"
+msgstr "Mais curto"
+
+#: addon/globalPlugins/btBatterytics.py:1772
+msgid "Longest"
+msgstr "Mais longo"
+
+#: addon/globalPlugins/btBatterytics.py:1773
+#: addon/globalPlugins/btBatterytics.py:1794
+msgid "Full charge (est.)"
+msgstr "Carga completa (est.)"
+
+#: addon/globalPlugins/btBatterytics.py:1774
+#: addon/globalPlugins/btBatterytics.py:1793
+#: addon/globalPlugins/btBatterytics.py:2074
+msgid "Drain rate"
+msgstr "Taxa de consumo"
+
+#: addon/globalPlugins/btBatterytics.py:1775
+msgid "Recharged every"
+msgstr "Intervalo entre recargas"
+
+#: addon/globalPlugins/btBatterytics.py:1776
+#: addon/globalPlugins/btBatterytics.py:2072
+msgid "Last recharge"
+msgstr "Última recarga"
+
+#: addon/globalPlugins/btBatterytics.py:1777
+msgid "Trend"
+msgstr "Tendência"
+
+#: addon/globalPlugins/btBatterytics.py:1778
+msgid "Left now (est.)"
+msgstr "Tempo restante (est.)"
+
+#. Translators: column headers of the summary list: the charges of the charging case of earbuds
+#: addon/globalPlugins/btBatterytics.py:1780
+msgid "Case used (charges, est.)"
+msgstr "Estojo usado (recargas, est.)"
+
+#: addon/globalPlugins/btBatterytics.py:1781
+msgid "Case left (charges, est.)"
+msgstr "Estojo restante (recargas, est.)"
+
+#: addon/globalPlugins/btBatterytics.py:1789
+msgid "Cycle"
+msgstr "Ciclo"
+
+#: addon/globalPlugins/btBatterytics.py:1790
+msgid "State"
+msgstr "Estado"
+
+#: addon/globalPlugins/btBatterytics.py:1791
+msgid "Duration"
+msgstr "Duração"
+
+#: addon/globalPlugins/btBatterytics.py:1792
+msgid "Battery"
+msgstr "Bateria"
+
+#: addon/globalPlugins/btBatterytics.py:1795
+msgid "Ended"
+msgstr "Término"
+
+#. Translators: column header of the cycle list: how the time of the cycle was counted
+#: addon/globalPlugins/btBatterytics.py:1797
+msgid "Time counted"
+msgstr "Tempo contabilizado"
+
+#: addon/globalPlugins/btBatterytics.py:1804
+#: addon/globalPlugins/btBatterytics.py:1833
+msgid "Device ID"
+msgstr "ID do dispositivo"
+
+#: addon/globalPlugins/btBatterytics.py:1805
+#: addon/globalPlugins/btBatterytics.py:1834
+msgid "Device name"
+msgstr "Nome do dispositivo"
+
+#: addon/globalPlugins/btBatterytics.py:1806
+#: addon/globalPlugins/btBatterytics.py:1835
+msgid "Alias"
+msgstr "Apelido"
+
+#: addon/globalPlugins/btBatterytics.py:1807
+msgid "Battery level (%)"
+msgstr "Nível da bateria (%)"
+
+#: addon/globalPlugins/btBatterytics.py:1808
+msgid "Current cycle (s)"
+msgstr "Ciclo atual (s)"
+
+#: addon/globalPlugins/btBatterytics.py:1809
+msgid "Average (s)"
+msgstr "Média (s)"
+
+#: addon/globalPlugins/btBatterytics.py:1810
+msgid "Shortest (s)"
+msgstr "Mais curto (s)"
+
+#: addon/globalPlugins/btBatterytics.py:1811
+msgid "Longest (s)"
+msgstr "Mais longo (s)"
+
+#: addon/globalPlugins/btBatterytics.py:1812
+#: addon/globalPlugins/btBatterytics.py:1840
+msgid "Full charge estimate (s)"
+msgstr "Estimativa de carga completa (s)"
+
+#: addon/globalPlugins/btBatterytics.py:1813
+msgid "Recharge interval (s)"
+msgstr "Intervalo entre recargas (s)"
+
+#: addon/globalPlugins/btBatterytics.py:1814
+msgid "Last recharge (ISO 8601)"
+msgstr "Última recarga (ISO 8601)"
+
+#: addon/globalPlugins/btBatterytics.py:1815
+msgid "Left now (s)"
+msgstr "Tempo restante (s)"
+
+#: addon/globalPlugins/btBatterytics.py:1816
+#: addon/globalPlugins/btBatterytics.py:1842
+msgid "Drain rate (points/hour)"
+msgstr "Taxa de consumo (pontos/hora)"
+
+#: addon/globalPlugins/btBatterytics.py:1817
+msgid "Alert level (%)"
+msgstr "Nível de alerta (%)"
+
+#: addon/globalPlugins/btBatterytics.py:1818
+msgid "Level drop alert"
+msgstr "Alerta de queda de nível"
+
+#: addon/globalPlugins/btBatterytics.py:1819
+msgid "Connect alert"
+msgstr "Alerta de conexão"
+
+#: addon/globalPlugins/btBatterytics.py:1820
+msgid "Disconnect alert"
+msgstr "Alerta de desconexão"
+
+#. Translators: extra column headers of the exports with detailed values (charges of the charging case)
+#: addon/globalPlugins/btBatterytics.py:1822
+msgid "Case used (charges)"
+msgstr "Estojo usado (recargas)"
+
+#: addon/globalPlugins/btBatterytics.py:1823
+msgid "Case capacity (charges)"
+msgstr "Capacidade do estojo (recargas)"
+
+#: addon/globalPlugins/btBatterytics.py:1824
+msgid "Case left (charges)"
+msgstr "Estojo restante (recargas)"
+
+#. Translators: extra column header of the exports with detailed values
+#: addon/globalPlugins/btBatterytics.py:1826
+msgid "Recharge level (%)"
+msgstr "Nível de recarga (%)"
+
+#: addon/globalPlugins/btBatterytics.py:1836
+msgid "Duration (s)"
+msgstr "Duração (s)"
+
+#: addon/globalPlugins/btBatterytics.py:1837
+msgid "Battery at start (%)"
+msgstr "Bateria inicial (%)"
+
+#: addon/globalPlugins/btBatterytics.py:1838
+msgid "Lowest battery (%)"
+msgstr "Menor nível da bateria (%)"
+
+#: addon/globalPlugins/btBatterytics.py:1839
+msgid "Battery used (points)"
+msgstr "Bateria usada (pontos)"
+
+#: addon/globalPlugins/btBatterytics.py:1841
+msgid "Ended (ISO 8601)"
+msgstr "Término (ISO 8601)"
+
+#. Translators: value in the 'Cycle' column for the cycle that has not finished yet
+#: addon/globalPlugins/btBatterytics.py:1881
+msgid "current"
+msgstr "atual"
+
+#. Translators: state of a device in the cycle list, its finished cycles are shown
+#: addon/globalPlugins/btBatterytics.py:1949
+msgid "expanded"
+msgstr "expandido"
+
+#. Translators: state of a device in the cycle list, its finished cycles are hidden
+#: addon/globalPlugins/btBatterytics.py:1952
+msgid "collapsed"
+msgstr "recolhido"
+
+#: addon/globalPlugins/btBatterytics.py:1966
+msgid "off"
+msgstr "desativada"
+
+#: addon/globalPlugins/btBatterytics.py:1967
+msgid "on, elapsed time"
+msgstr "ativada, tempo decorrido"
+
+#: addon/globalPlugins/btBatterytics.py:1967
+msgid "on"
+msgstr "ativada"
+
+#. Translators: the level at which a device is usually recharged, in the summary list, e.g. 'recharge at 70%'
+#: addon/globalPlugins/btBatterytics.py:1970
+#, python-brace-format
+msgid "recharge at {level}%"
+msgstr "recarregar a {level}%"
+
+#. Translators: connection status shown in the statistics
+#. Translators: label shown before connection duration, e.g. 'connected 43 min'
+#: addon/globalPlugins/btBatterytics.py:1978
+#: addon/globalPlugins/btBatterytics.py:4103
+msgid "connected"
+msgstr "conectado"
+
+#. Translators: connection status shown in the statistics
+#: addon/globalPlugins/btBatterytics.py:1981
+msgid "unknown"
+msgstr "desconhecido"
+
+#. Translators: connection status shown in the statistics
+#: addon/globalPlugins/btBatterytics.py:1984
+msgid "disconnected"
+msgstr "desconectado"
+
+#. Translators: ways to sort the devices of the statistics, in the Sort menu
+#: addon/globalPlugins/btBatterytics.py:2067
+msgid "Report order (connected first)"
+msgstr "Ordem do relatório (conectados primeiro)"
+
+#: addon/globalPlugins/btBatterytics.py:2068
+msgid "Name"
+msgstr "Nome"
+
+#: addon/globalPlugins/btBatterytics.py:2069
+msgid "Number of cycles"
+msgstr "Número de ciclos"
+
+#: addon/globalPlugins/btBatterytics.py:2070
+msgid "Average time"
+msgstr "Tempo médio"
+
+#: addon/globalPlugins/btBatterytics.py:2071
+msgid "Full charge estimate"
+msgstr "Estimativa de carga completa"
+
+#: addon/globalPlugins/btBatterytics.py:2073
+msgid "Current cycle time"
+msgstr "Tempo do ciclo atual"
+
+#. Translators: a way to sort the devices in the Sort menu: the user moves them with Control+Shift+Up or Down
+#: addon/globalPlugins/btBatterytics.py:2076
+msgid "Manual (Control+Shift+Up or Down moves a device)"
+msgstr "Manual (Control+Shift+Seta para cima ou para baixo move um dispositivo)"
+
+#. Translators: ways to sort the finished cycles of each device, in the Sort menu
+#: addon/globalPlugins/btBatterytics.py:2083
+msgid "Newest first"
+msgstr "Mais recentes primeiro"
+
+#: addon/globalPlugins/btBatterytics.py:2084
+msgid "Oldest first"
+msgstr "Mais antigos primeiro"
+
+#: addon/globalPlugins/btBatterytics.py:2085
+msgid "Longest first"
+msgstr "Mais longos primeiro"
+
+#: addon/globalPlugins/btBatterytics.py:2086
+msgid "Shortest first"
+msgstr "Mais curtos primeiro"
+
+#. Translators: a way to sort the finished cycles in the Sort menu: the user moves them with Control+Shift+Up or Down
+#: addon/globalPlugins/btBatterytics.py:2088
+msgid "Manual (Control+Shift+Up or Down moves a cycle)"
+msgstr "Manual (Control+Shift+Seta para cima ou para baixo move um ciclo)"
+
+#. Translators: file formats in the Export menu of the statistics
+#: addon/globalPlugins/btBatterytics.py:2134
+msgid "Plain text"
+msgstr "Texto simples"
+
+#: addon/globalPlugins/btBatterytics.py:2135
+msgid "Markdown table"
+msgstr "Tabela Markdown"
+
+#: addon/globalPlugins/btBatterytics.py:2136
+msgid "CSV"
+msgstr "CSV"
+
+#: addon/globalPlugins/btBatterytics.py:2137
+msgid "Tab-separated values (for spreadsheets)"
+msgstr "Valores separados por tabulação (para planilhas)"
+
+#: addon/globalPlugins/btBatterytics.py:2138
+msgid "JSON"
+msgstr "JSON"
+
+#: addon/globalPlugins/btBatterytics.py:2139
+msgid "HTML table"
+msgstr "Tabela HTML"
+
+#. Translators: title of the HTML report of the statistics
+#. Translators: title of the dialog that shows the recorded battery cycles
+#: addon/globalPlugins/btBatterytics.py:2192
+#: addon/globalPlugins/btBatterytics.py:2587
+#: addon/globalPlugins/btBatterytics.py:3469
+msgid "Bluetooth battery statistics"
+msgstr "Estatísticas da bateria Bluetooth"
+
+#. Translators: line below the title of the HTML report, with the date and time
+#: addon/globalPlugins/btBatterytics.py:2194
+#, python-brace-format
+msgid "Exported {date}"
+msgstr "Exportado em {date}"
+
+#. Translators: title of the dialog to choose the columns of the statistics
+#: addon/globalPlugins/btBatterytics.py:2283
+msgid "Choose columns"
+msgstr "Escolher colunas"
+
+#: addon/globalPlugins/btBatterytics.py:2289
+msgid "&Summary columns (Control+Shift+Up or Down moves a column):"
+msgstr "Colunas de re&sumo (Control+Shift+Seta para cima ou para baixo move uma coluna):"
+
+#: addon/globalPlugins/btBatterytics.py:2293
+msgid "&Cycle columns (Control+Shift+Up or Down moves a column):"
+msgstr "Colunas de &ciclos (Control+Shift+Seta para cima ou para baixo move uma coluna):"
+
+#. Translators: spoken after a column was moved in the list of columns. {number} is its new position and
+#. {total} how many columns there are.
+#. Translators: spoken after a list or a row was moved. {number} is its new position and {total} how many
+#. there are.
+#: addon/globalPlugins/btBatterytics.py:2361
+#: addon/globalPlugins/btBatterytics.py:2735
+#: addon/globalPlugins/btBatterytics.py:2773
+#, python-brace-format
+msgid "{number} of {total}"
+msgstr "{number} de {total}"
+
+#. Translators: title of the dialog to choose the low battery alert level of a device
+#: addon/globalPlugins/btBatterytics.py:2378
+msgid "Low battery alert level"
+msgstr "Nível do alerta de bateria fraca"
+
+#. Translators: label of the list of choices for the low battery alert of a device
+#: addon/globalPlugins/btBatterytics.py:2382
+#, python-brace-format
+msgid "&Alert for {name}:"
+msgstr "&Alerta para {name}:"
+
+#. Translators: choices of the low battery alert of a device
+#: addon/globalPlugins/btBatterytics.py:2391
+#, python-brace-format
+msgid "Use the default level ({level}%)"
+msgstr "Usar o nível padrão ({level}%)"
+
+#. Translators: choice of the low battery alert of a device when the default alert is turned off
+#: addon/globalPlugins/btBatterytics.py:2394
+msgid "Use the default (no alert, the low battery alert is off)"
+msgstr "Usar o padrão (sem alerta, o alerta de bateria fraca está desativado)"
+
+#: addon/globalPlugins/btBatterytics.py:2395
+msgid "Use a level of my own"
+msgstr "Usar um nível personalizado"
+
+#: addon/globalPlugins/btBatterytics.py:2396
+msgid "Never alert for this device"
+msgstr "Nunca alertar para este dispositivo"
+
+#. Translators: label of the field with the level of the low battery alert of a device
+#: addon/globalPlugins/btBatterytics.py:2403
+msgid "&Level (percent):"
+msgstr "Níve&l (porcentagem):"
+
+#. Translators: title of the dialog for the usual recharge level of a device. {name} is the name of the device.
+#: addon/globalPlugins/btBatterytics.py:2429
+#, python-brace-format
+msgid "Usual recharge level: {name}"
+msgstr "Nível habitual de recarga: {name}"
+
+#: addon/globalPlugins/btBatterytics.py:2435
+msgid ""
+"Some devices report a battery level that does not go down evenly. For "
+"example, the level stays at 100 percent for a long time, then falls quickly, "
+"and the device stops working at 55 or 60 percent. If you recharge such a "
+"device at a level that is safe for you, enter it here. The estimates of the "
+"statistics (full charge, time left) are then calculated down to that level, "
+"instead of down to 0 percent, so they are much closer to the time between "
+"your recharges. Leave 0 for a device whose level goes down evenly."
+msgstr "Alguns dispositivos informam um nível de bateria que não diminui uniformemente. Por exemplo, o nível permanece em 100 por cento por muito tempo, depois cai rapidamente, e o dispositivo para de funcionar em 55 ou 60 por cento. Se você recarrega um dispositivo assim em um nível seguro para você, informe-o aqui. As estimativas das estatísticas (carga completa, tempo restante) serão calculadas até esse nível, em vez de até 0 por cento, ficando muito mais próximas do tempo entre suas recargas. Mantenha 0 para dispositivos cujo nível diminui uniformemente."
+
+#: addon/globalPlugins/btBatterytics.py:2447
+msgid "&Level at which you recharge (percent, 0 for none):"
+msgstr "Níve&l em que você recarrega (porcentagem, 0 para nenhum):"
+
+#. Translators: title of the dialog for the charging case of a device. {name} is the name of the device.
+#: addon/globalPlugins/btBatterytics.py:2469
+#, python-brace-format
+msgid "Charging case: {name}"
+msgstr "Estojo de recarga: {name}"
+
+#. Translators: check box of the charging case dialog: turns the estimate and the alert on for the device
+#: addon/globalPlugins/btBatterytics.py:2476
+msgid "&Alert about the charging case"
+msgstr "&Alertar sobre o estojo de recarga"
+
+#. Translators: labels of the fields of the charging case dialog
+#: addon/globalPlugins/btBatterytics.py:2481
+msgid "Earbuds &runtime per charge (hours):"
+msgstr "Autonomia dos fones por &recarga (horas):"
+
+#: addon/globalPlugins/btBatterytics.py:2482
+msgid "&Total runtime with the case (hours):"
+msgstr "Autonomia &total com o estojo (horas):"
+
+#: addon/globalPlugins/btBatterytics.py:2485
+msgid "Alert &when fewer than this many charges are left:"
+msgstr "Alertar &quando restarem menos recargas que:"
+
+#. Translators: button of the charging case dialog: fills the runtime of the earbuds from the statistics
+#: addon/globalPlugins/btBatterytics.py:2491
+msgid "&Use statistics"
+msgstr "&Usar estatísticas"
+
+#: addon/globalPlugins/btBatterytics.py:2500
+msgid ""
+"The charges of the case are estimated from how many times the earbuds were "
+"recharged while connected to this computer, so the estimate is less accurate "
+"if you also use them with another device. The connection time of the device "
+"must be measured. After you charge the case, mark it as charged in the "
+"context menu of the statistics."
+msgstr "As recargas do estojo são estimadas pelo número de vezes que os fones foram recarregados durante o uso com este computador. Por isso, a estimativa é menos precisa se você também os usa com outro dispositivo. O tempo conectado do dispositivo precisa ser medido. Depois de carregar o estojo, marque-o como carregado no menu de contexto das estatísticas."
+
+#: addon/globalPlugins/btBatterytics.py:2537
+#, python-brace-format
+msgid ""
+"Charges of the earbuds from a full case, from these runtimes: about {count}."
+msgstr "Recargas dos fones com o estojo cheio, a partir dessas autonomias: cerca de {count}."
+
+#: addon/globalPlugins/btBatterytics.py:2545
+#, python-brace-format
+msgid ""
+"Learned from your last {rounds} case rounds, charges per round: about "
+"{count}."
+msgstr "Aprendido com suas últimas {rounds} rodadas de uso do estojo, recargas por rodada: cerca de {count}."
+
+#. Translators: error in the charging case dialog
+#: addon/globalPlugins/btBatterytics.py:2563
+msgid ""
+"The total runtime with the case must be longer than the runtime of the "
+"earbuds."
+msgstr "A autonomia total com o estojo deve ser maior que a autonomia dos fones."
+
+#. Translators: title of the question about the charging case
+#: addon/globalPlugins/btBatterytics.py:2564
+#: addon/globalPlugins/btBatterytics.py:3935
+msgid "Charging case"
+msgstr "Estojo de recarga"
+
+#. Translators: label of the list with one summary line per device
+#: addon/globalPlugins/btBatterytics.py:2611
+msgid "&Summary per device:"
+msgstr "Re&sumo por dispositivo:"
+
+#. Translators: label of the list with every recorded battery cycle
+#: addon/globalPlugins/btBatterytics.py:2618
+msgid "&Cycles:"
+msgstr "&Ciclos:"
+
+#: addon/globalPlugins/btBatterytics.py:2626
+msgid "&Close"
+msgstr "Fe&char"
+
+#. Translators: spoken when trying to move a cycle without the manual sort
+#: addon/globalPlugins/btBatterytics.py:2751
+msgid "To move cycles, choose Manual in the Sort menu, under Cycles by"
+msgstr "Para mover ciclos, escolha Manual no menu Ordenar, em Ciclos por"
+
+#. Translators: spoken when trying to move a device without the manual sort
+#: addon/globalPlugins/btBatterytics.py:2758
+msgid "To move devices, choose Manual in the Sort menu, under Devices by"
+msgstr "Para mover dispositivos, escolha Manual no menu Ordenar, em Dispositivos por"
+
+#. Translators: spoken when trying to expand a device that has no finished cycles
+#: addon/globalPlugins/btBatterytics.py:2783
+msgid "No earlier cycles"
+msgstr "Nenhum ciclo anterior"
+
+#. Translators: spoken after the finished cycles of a device were hidden
+#: addon/globalPlugins/btBatterytics.py:2788
+msgid "Collapsed"
+msgstr "Recolhido"
+
+#. Translators: spoken after the finished cycles of a device were shown
+#: addon/globalPlugins/btBatterytics.py:2792
+msgid "Expanded"
+msgstr "Expandido"
+
+#. Translators: items of the Measuring menu of a device in the statistics. The second one counts the time
+#. since the last recharge, for devices that are not always connected (for example a keyboard that also
+#. uses a dongle), instead of the time the device is connected.
+#: addon/globalPlugins/btBatterytics.py:2840
+msgid "&Measure this device"
+msgstr "&Medir este dispositivo"
+
+#: addon/globalPlugins/btBatterytics.py:2845
+msgid "Count &elapsed time (for devices that are not always connected)"
+msgstr "Contar t&empo decorrido (para dispositivos que nem sempre ficam conectados)"
+
+#. Translators: item of the Measuring menu of a device: the level at which the user usually recharges it
+#: addon/globalPlugins/btBatterytics.py:2850
+msgid "Usual recharge &level..."
+msgstr "Níve&l habitual de recarga..."
+
+#: addon/globalPlugins/btBatterytics.py:2852
+msgid "Meas&uring"
+msgstr "Medição (&U)"
+
+#. Translators: the Alerts submenu of the context menu of the statistics lists
+#: addon/globalPlugins/btBatterytics.py:2854
+msgid "&Alerts"
+msgstr "&Alertas"
+
+#. Translators: items of the context menu of the statistics lists, some followed by their keys
+#: addon/globalPlugins/btBatterytics.py:2856
+msgid "&Select"
+msgstr "&Selecionar"
+
+#: addon/globalPlugins/btBatterytics.py:2857
+msgid "S&ort"
+msgstr "&Ordenar"
+
+#: addon/globalPlugins/btBatterytics.py:2858
+msgid "Choose &columns..."
+msgstr "Escolher &colunas..."
+
+#. Translators: items of the context menu of the cycle list, followed by their key
+#: addon/globalPlugins/btBatterytics.py:2863
+msgid "Co&llapse\tSpace"
+msgstr "Reco&lher\tSpace"
+
+#: addon/globalPlugins/btBatterytics.py:2863
+msgid "&Expand\tSpace"
+msgstr "&Expandir\tSpace"
+
+#: addon/globalPlugins/btBatterytics.py:2867
+msgid "Rena&me device...\tF2"
+msgstr "Reno&mear dispositivo...\tF2"
+
+#. Translators: items of the context menu of the statistics lists, followed by their keys
+#: addon/globalPlugins/btBatterytics.py:2873
+msgid "Move row u&p\tCtrl+Shift+Up"
+msgstr "Mover linha para cima (&P)\tCtrl+Shift+Up"
+
+#: addon/globalPlugins/btBatterytics.py:2874
+msgid "Move row do&wn\tCtrl+Shift+Down"
+msgstr "Mover linha para baixo (&W)\tCtrl+Shift+Down"
+
+#: addon/globalPlugins/btBatterytics.py:2877
+msgid "Move list &before\tCtrl+Shift+Left"
+msgstr "Mover lista para antes (&B)\tCtrl+Shift+Left"
+
+#: addon/globalPlugins/btBatterytics.py:2878
+msgid "Move l&ist after\tCtrl+Shift+Right"
+msgstr "Mover l&ista para depois\tCtrl+Shift+Right"
+
+#: addon/globalPlugins/btBatterytics.py:2881
+msgid "Copy &row\tCtrl+C"
+msgstr "Copiar linha (&R)\tCtrl+C"
+
+#: addon/globalPlugins/btBatterytics.py:2882
+msgid "Copy &device\tCtrl+Shift+C"
+msgstr "Copiar &dispositivo\tCtrl+Shift+C"
+
+#. Translators: item of the context menu of the statistics lists, followed by its key
+#: addon/globalPlugins/btBatterytics.py:2887
+msgid "Mar&k case charged\tCtrl+Shift+R"
+msgstr "Marcar estojo como carregado (&K)\tCtrl+Shift+R"
+
+#: addon/globalPlugins/btBatterytics.py:2889
+msgid "E&xport\tCtrl+E"
+msgstr "E&xportar\tCtrl+E"
+
+#: addon/globalPlugins/btBatterytics.py:2890
+msgid "Re&fresh\tF5"
+msgstr "Atualizar (&F)\tF5"
+
+#: addon/globalPlugins/btBatterytics.py:2892
+msgid "Dele&te row\tCtrl+Delete"
+msgstr "Excluir linha (&T)\tCtrl+Delete"
+
+#: addon/globalPlugins/btBatterytics.py:2893
+msgid "Delete de&vice\tCtrl+Shift+Delete"
+msgstr "Excluir dispositi&vo\tCtrl+Shift+Delete"
+
+#: addon/globalPlugins/btBatterytics.py:2903
+msgid "&Toggle current row\tCtrl+Space"
+msgstr "Al&ternar seleção da linha atual\tCtrl+Space"
+
+#: addon/globalPlugins/btBatterytics.py:2904
+msgid "Select &all\tCtrl+A"
+msgstr "Selecionar tod&as\tCtrl+A"
+
+#: addon/globalPlugins/btBatterytics.py:2905
+msgid "Select &none"
+msgstr "&Não selecionar nenhuma"
+
+#: addon/globalPlugins/btBatterytics.py:2906
+msgid "&Invert selection"
+msgstr "&Inverter seleção"
+
+#: addon/globalPlugins/btBatterytics.py:2907
+msgid "Select rows of this &device"
+msgstr "Selecionar linhas deste &dispositivo"
+
+#. Translators: spoken after changing the selection in a statistics list
+#: addon/globalPlugins/btBatterytics.py:2935
+#, python-brace-format
+msgid "{count} selected"
+msgstr "{count} selecionadas"
+
+#. Translators: the two groups of the Sort menu of the statistics
+#: addon/globalPlugins/btBatterytics.py:2941
+msgid "&Devices by"
+msgstr "&Dispositivos por"
+
+#: addon/globalPlugins/btBatterytics.py:2942
+msgid "&Cycles by"
+msgstr "&Ciclos por"
+
+#. Translators: spoken after choosing how the statistics are sorted
+#: addon/globalPlugins/btBatterytics.py:2973
+#, python-brace-format
+msgid "Sorted by {order}"
+msgstr "Ordenado por {order}"
+
+#. Translators: spoken when the statistics start refreshing
+#: addon/globalPlugins/btBatterytics.py:3003
+msgid "Refreshing"
+msgstr "Atualizando"
+
+#: addon/globalPlugins/btBatterytics.py:3023
+#: addon/globalPlugins/btBatterytics.py:4148
+msgid "Bluetooth battery detection failed."
+msgstr "Falha na detecção da bateria Bluetooth."
+
+#. Translators: spoken after the statistics were refreshed
+#: addon/globalPlugins/btBatterytics.py:3027
+msgid "Refreshed"
+msgstr "Atualizado"
+
+#. Translators: question when renaming a device in the statistics. {name} is the name Windows gave.
+#: addon/globalPlugins/btBatterytics.py:3042
+#, python-brace-format
+msgid "Name for {name} (leave empty to use the name Windows gave):"
+msgstr "Nome para {name} (deixe vazio para usar o nome dado pelo Windows):"
+
+#. Translators: title of the dialog to rename a device in the statistics
+#: addon/globalPlugins/btBatterytics.py:3044
+msgid "Rename device"
+msgstr "Renomear dispositivo"
+
+#. Translators: spoken after a device was renamed in the statistics
+#: addon/globalPlugins/btBatterytics.py:3054
+msgid "Renamed"
+msgstr "Renomeado"
+
+#. Translators: spoken after the low battery alert level of a device was chosen
+#: addon/globalPlugins/btBatterytics.py:3080
+msgid "Alert level set"
+msgstr "Nível de alerta definido"
+
+#: addon/globalPlugins/btBatterytics.py:3087
+msgid "Battery level &drops"
+msgstr "Que&da do nível da bateria"
+
+#: addon/globalPlugins/btBatterytics.py:3088
+msgid "Device &connects"
+msgstr "Dispositivo &conecta"
+
+#: addon/globalPlugins/btBatterytics.py:3089
+msgid "Device d&isconnects"
+msgstr "Dispositivo desconecta (&I)"
+
+#: addon/globalPlugins/btBatterytics.py:3096
+msgid "Low battery &level..."
+msgstr "Níve&l de bateria fraca..."
+
+#. Translators: item of the Alerts menu of a device in the statistics: opens the charging case dialog
+#: addon/globalPlugins/btBatterytics.py:3099
+msgid "C&harging case..."
+msgstr "Estojo de recarga (&H)..."
+
+#. Translators: spoken after turning an alert of a device on or off
+#: addon/globalPlugins/btBatterytics.py:3115
+msgid "Level drop alert on"
+msgstr "Alerta de queda de nível ativado"
+
+#: addon/globalPlugins/btBatterytics.py:3115
+msgid "Level drop alert off"
+msgstr "Alerta de queda de nível desativado"
+
+#: addon/globalPlugins/btBatterytics.py:3116
+msgid "Connect alert on"
+msgstr "Alerta de conexão ativado"
+
+#: addon/globalPlugins/btBatterytics.py:3116
+msgid "Connect alert off"
+msgstr "Alerta de conexão desativado"
+
+#: addon/globalPlugins/btBatterytics.py:3117
+msgid "Disconnect alert on"
+msgstr "Alerta de desconexão ativado"
+
+#: addon/globalPlugins/btBatterytics.py:3117
+msgid "Disconnect alert off"
+msgstr "Alerta de desconexão desativado"
+
+#. Translators: spoken after the charging case of a device was set in the statistics
+#: addon/globalPlugins/btBatterytics.py:3144
+msgid "Charging case saved"
+msgstr "Estojo de recarga salvo"
+
+#. Translators: spoken when marking the case as charged for a device that has no charging case alert
+#: addon/globalPlugins/btBatterytics.py:3165
+msgid "The charging case alert is off for this device"
+msgstr "O alerta do estojo de recarga está desativado para este dispositivo"
+
+#. Translators: spoken after the charging case of a device was marked as charged
+#. Translators: spoken after the user said that the charging case was charged
+#: addon/globalPlugins/btBatterytics.py:3170
+#: addon/globalPlugins/btBatterytics.py:3941
+msgid "Case marked as charged"
+msgstr "Estojo marcado como carregado"
+
+#. Translators: spoken after the usual recharge level of a device was set (or turned off) in the statistics
+#: addon/globalPlugins/btBatterytics.py:3189
+msgid "Recharge level saved"
+msgstr "Nível de recarga salvo"
+
+#: addon/globalPlugins/btBatterytics.py:3189
+msgid "Recharge level off"
+msgstr "Nível de recarga desativado"
+
+#. Translators: spoken after choosing how the time of a device is counted
+#: addon/globalPlugins/btBatterytics.py:3202
+msgid "Counting elapsed time"
+msgstr "Contando tempo decorrido"
+
+#: addon/globalPlugins/btBatterytics.py:3202
+msgid "Counting connected time"
+msgstr "Contando tempo conectado"
+
+#. Translators: spoken after choosing whether the connection time of a device is measured
+#: addon/globalPlugins/btBatterytics.py:3224
+msgid "Measuring on"
+msgstr "Medição ativada"
+
+#: addon/globalPlugins/btBatterytics.py:3224
+msgid "Measuring off"
+msgstr "Medição desativada"
+
+#. Translators: what the Export menu exports, one choice is checked
+#: addon/globalPlugins/btBatterytics.py:3230
+#, python-brace-format
+msgid "Selected rows ({count})"
+msgstr "Linhas selecionadas ({count})"
+
+#: addon/globalPlugins/btBatterytics.py:3231
+msgid "Current device"
+msgstr "Dispositivo atual"
+
+#: addon/globalPlugins/btBatterytics.py:3232
+msgid "All rows"
+msgstr "Todas as linhas"
+
+#. Translators: a check box item of the Export menu. When checked, exports have extra columns with
+#. exact values (seconds, percent, ISO dates) and the identity of the device.
+#: addon/globalPlugins/btBatterytics.py:3241
+msgid "Include &detailed values"
+msgstr "Incluir valores &detalhados"
+
+#: addon/globalPlugins/btBatterytics.py:3245
+msgid "&Copy to clipboard as"
+msgstr "&Copiar para a área de transferência como"
+
+#: addon/globalPlugins/btBatterytics.py:3245
+msgid "&Save to a file as"
+msgstr "&Salvar em arquivo como"
+
+#. Translators: an item of the Export menu: make an HTML report and open it in the web browser
+#: addon/globalPlugins/btBatterytics.py:3261
+msgid "&Open as an HTML report in the browser"
+msgstr "&Abrir como relatório HTML no navegador"
+
+#: addon/globalPlugins/btBatterytics.py:3277
+msgid "Summary per device"
+msgstr "Resumo por dispositivo"
+
+#. Translators: spoken when there is nothing to export
+#: addon/globalPlugins/btBatterytics.py:3305
+#: addon/globalPlugins/btBatterytics.py:3346
+msgid "Nothing to export"
+msgstr "Nada para exportar"
+
+#. Translators: spoken after the statistics were copied to the clipboard
+#: addon/globalPlugins/btBatterytics.py:3311
+#, python-brace-format
+msgid "Copied {count} rows"
+msgstr "{count} linhas copiadas"
+
+#: addon/globalPlugins/btBatterytics.py:3313
+#: addon/globalPlugins/btBatterytics.py:3378
+#: addon/globalPlugins/btBatterytics.py:4176
+msgid "Failed to copy to clipboard."
+msgstr "Falha ao copiar para a área de transferência."
+
+#. Translators: title of the dialog to choose the file of an export
+#: addon/globalPlugins/btBatterytics.py:3318
+msgid "Save statistics"
+msgstr "Salvar estatísticas"
+
+#. Translators: spoken after the statistics were saved to a file
+#: addon/globalPlugins/btBatterytics.py:3328
+#, python-brace-format
+msgid "Saved {count} rows"
+msgstr "{count} linhas salvas"
+
+#. Translators: spoken when saving the statistics to a file failed
+#: addon/globalPlugins/btBatterytics.py:3338
+msgid "Failed to save the file."
+msgstr "Falha ao salvar o arquivo."
+
+#. Translators: spoken when the HTML report could not be opened in the browser
+#: addon/globalPlugins/btBatterytics.py:3356
+msgid "Failed to open the report."
+msgstr "Falha ao abrir o relatório."
+
+#. Translators: spoken after copying everything about a device from the statistics
+#: addon/globalPlugins/btBatterytics.py:3381
+msgid "Device copied"
+msgstr "Dispositivo copiado"
+
+#. Translators: spoken after copying a row of the statistics
+#: addon/globalPlugins/btBatterytics.py:3384
+msgid "Row copied"
+msgstr "Linha copiada"
+
+#. Translators: first line of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3419
+#, python-brace-format
+msgid "Device: {name}"
+msgstr "Dispositivo: {name}"
+
+#. Translators: line of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3425
+#, python-brace-format
+msgid "Devices to delete with all their data: {count}"
+msgstr "Dispositivos a excluir com todos os dados: {count}"
+
+#. Translators: line of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3428
+#, python-brace-format
+msgid "Current cycles to restart from zero: {count}"
+msgstr "Ciclos atuais a reiniciar do zero: {count}"
+
+#. Translators: line of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3431
+#, python-brace-format
+msgid "Finished cycles to delete: {count}"
+msgstr "Ciclos concluídos a excluir: {count}"
+
+#. Translators: end of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3433
+msgid "This cannot be undone. Continue?"
+msgstr "Esta ação não pode ser desfeita. Continuar?"
+
+#. Translators: title of the question before deleting statistics
+#: addon/globalPlugins/btBatterytics.py:3437
+msgid "Confirm deletion"
+msgstr "Confirmar exclusão"
+
+#. Translators: spoken after statistics were deleted
+#: addon/globalPlugins/btBatterytics.py:3451
+msgid "Deleted"
+msgstr "Excluído"
+
+#: addon/globalPlugins/btBatterytics.py:3468
+msgid "No battery statistics have been recorded yet."
+msgstr "Nenhuma estatística de bateria foi registrada ainda."
+
+#: addon/globalPlugins/btBatterytics.py:3575
+msgid "Report &connected devices"
+msgstr "Informar dispositivos &conectados"
+
+#: addon/globalPlugins/btBatterytics.py:3582
+msgid "Report &disconnected devices"
+msgstr "Informar dispositivos &desconectados"
+
+#: addon/globalPlugins/btBatterytics.py:3589
+msgid "Report &unknown status devices"
+msgstr "Informar dispositivos com status desconhecido (&U)"
+
+#: addon/globalPlugins/btBatterytics.py:3597
+msgid "Show connection &type (Classic / LE)"
+msgstr "Mostrar &tipo de conexão (Classic / LE)"
+
+#: addon/globalPlugins/btBatterytics.py:3604
+msgid "Show connection &duration"
+msgstr "Mostrar &duração da conexão"
+
+#: addon/globalPlugins/btBatterytics.py:3614
+msgid ""
+"Speak &total connection time since the last recharge (unchecked: current "
+"connection only)"
+msgstr "Falar o &tempo total conectado desde a última recarga (desmarcado: apenas a conexão atual)"
+
+#: addon/globalPlugins/btBatterytics.py:3624
+msgid "Show the charging case estimate in the &report"
+msgstr "Mostrar a estimativa do estojo de recarga no &relatório"
+
+#: addon/globalPlugins/btBatterytics.py:3628
+msgid "&View battery statistics..."
+msgstr "&Ver estatísticas da bateria..."
+
+#: addon/globalPlugins/btBatterytics.py:3631
+msgid "Keep at most this many finished cycles per &device:"
+msgstr "Número máximo de ciclos concluídos a manter por &dispositivo:"
+
+#: addon/globalPlugins/btBatterytics.py:3639
+msgid "Delete finished cycles older than this many &days (0 keeps them all):"
+msgstr "Excluir ciclos concluídos mais antigos que este número de &dias (0 mantém todos):"
+
+#: addon/globalPlugins/btBatterytics.py:3648
+msgid "Enable &low battery alert (default for all devices)"
+msgstr "Ativar alerta de bateria fraca (&L) (padrão para todos os dispositivos)"
+
+#: addon/globalPlugins/btBatterytics.py:3655
+msgid "Default low battery &threshold for devices (percent):"
+msgstr "Limite padrão de bateria fraca para disposi&tivos (porcentagem):"
+
+#. --- How alerts are given: the low battery alert, the level drop alerts and the connection alerts ---
+#: addon/globalPlugins/btBatterytics.py:3664
+msgid "Alert &methods (for all alerts):"
+msgstr "&Métodos de alerta (para todos os alertas):"
+
+#: addon/globalPlugins/btBatterytics.py:3669
+msgid "Speak the alert"
+msgstr "Falar o alerta"
+
+#: addon/globalPlugins/btBatterytics.py:3670
+msgid "Play a double beep"
+msgstr "Reproduzir dois bipes"
+
+#: addon/globalPlugins/btBatterytics.py:3671
+msgid "Play the sound of the alert (a .wav file in the sounds folder)"
+msgstr "Reproduzir o som do alerta (um arquivo .wav na pasta sounds)"
+
+#. Translators: label of a button in the settings that opens the folder with the sound files of the alerts
+#: addon/globalPlugins/btBatterytics.py:3684
+msgid "&Browse sound folder..."
+msgstr "A&brir pasta de sons..."
+
+#: addon/globalPlugins/btBatterytics.py:3689
+msgid ""
+"Level drop alerts: alert each time the battery drops by this many &points:"
+msgstr "Alertas de queda de nível: alertar a cada queda deste número de &pontos da bateria:"
+
+#: addon/globalPlugins/btBatterytics.py:3699
+msgid ""
+"Check for device connection changes every this many &seconds (for the "
+"connect and disconnect alerts):"
+msgstr "Verificar mudanças na conexão dos dispositivos a cada número de &segundos (para alertas de conexão e desconexão):"
+
+#. Translators: spoken when the folder with the sound files of the alerts could not be opened
+#: addon/globalPlugins/btBatterytics.py:3725
+msgid "Failed to open the sounds folder."
+msgstr "Falha ao abrir a pasta de sons."
+
+#: addon/globalPlugins/btBatterytics.py:3877
+#, python-brace-format
+msgid "{name} connected"
+msgstr "{name} conectado"
+
+#: addon/globalPlugins/btBatterytics.py:3879
+#, python-brace-format
+msgid "{name} disconnected"
+msgstr "{name} desconectado"
+
+#: addon/globalPlugins/btBatterytics.py:3899
+#, python-brace-format
+msgid "{name} battery low: {battery}%"
+msgstr "{name} bateria fraca: {battery}%"
+
+#: addon/globalPlugins/btBatterytics.py:3930
+#, python-brace-format
+msgid ""
+"Did you charge the charging case of {name}?\n"
+"\n"
+"The case was estimated to be nearly empty, and the earbuds have been "
+"recharged since. Choose Yes to count the charges of the case from zero "
+"again, or No to keep counting."
+msgstr "Você carregou o estojo de recarga de {name}?\n\nO estojo foi estimado como quase vazio, e os fones foram recarregados desde então. Escolha Sim para contar as recargas usadas do estojo do zero novamente, ou Não para continuar contando."
+
+#: addon/globalPlugins/btBatterytics.py:3975
+#, python-brace-format
+msgid ""
+"{name} charging case may be nearly empty, charges left: about {count}. "
+"Charge it together with the earbuds."
+msgstr "O estojo de recarga de {name} pode estar quase vazio; recargas restantes: cerca de {count}. Carregue-o junto com os fones."
+
+#: addon/globalPlugins/btBatterytics.py:4004
+#: addon/globalPlugins/btBatterytics.py:4096
+#, python-brace-format
+msgid "{name} battery {battery}%"
+msgstr "{name} bateria {battery}%"
+
+#. Translators: Title of the low battery alert dialog
+#: addon/globalPlugins/btBatterytics.py:4017
+msgid "Bluetooth Battery Low"
+msgstr "Bateria Bluetooth fraca"
+
+#: addon/globalPlugins/btBatterytics.py:4090
+#, python-brace-format
+msgid "{name} ({conn_type}) battery {battery}%"
+msgstr "{name} ({conn_type}) bateria {battery}%"
+
+#. Translators: label shown before the time since the last recharge, e.g. 'since the last recharge 12 days'
+#: addon/globalPlugins/btBatterytics.py:4109
+msgid "since the last recharge"
+msgstr "desde a última recarga"
+
+#. Translators: appended to a device line, e.g. 'FIIO EH11 battery 85% (connected 43 min)'
+#: addon/globalPlugins/btBatterytics.py:4122
+#, python-brace-format
+msgid "{device_info} ({connected_label} {duration})"
+msgstr "{device_info} ({connected_label} {duration})"
+
+#. Translators: appended to a device line. {count} is a number of charges, for example 2.2
+#: addon/globalPlugins/btBatterytics.py:4133
+#, python-brace-format
+msgid "{device_info} (case charges left: about {count})"
+msgstr "{device_info} (recargas restantes no estojo: cerca de {count})"
+
+#: addon/globalPlugins/btBatterytics.py:4159
+msgid "No Bluetooth battery information is available."
+msgstr "Nenhuma informação de bateria Bluetooth disponível."
+
+#: addon/globalPlugins/btBatterytics.py:4164
+msgid "No matching Bluetooth devices found based on your settings."
+msgstr "Nenhum dispositivo Bluetooth encontrado de acordo com suas configurações."
+
+#: addon/globalPlugins/btBatterytics.py:4174
+msgid "Battery report copied to clipboard."
+msgstr "Relatório da bateria copiado para a área de transferência."
+
+#. Translators: description shown in NVDA Input Gestures dialog
+#: addon/globalPlugins/btBatterytics.py:4184
+msgid "Open the Bluetooth battery statistics."
+msgstr "Abrir as estatísticas da bateria Bluetooth."
+
+#: addon/globalPlugins/btBatterytics.py:4195
+msgid ""
+"Press once to report battery, twice to copy to clipboard, three times to "
+"open settings."
+msgstr "Pressione uma vez para informar a bateria, duas vezes para copiar para a área de transferência e três vezes para abrir as configurações."
+
+#: buildVars.py:25
+msgid ""
+"BT-Batterytics reports the battery level of your Bluetooth devices, "
+"remembers how long each device lasts between two recharges, and shows "
+"statistics about it. It is a modified version of BlueToothBatteryReport by "
+"haitun001 and cary-rowen.\n"
+"\n"
+"Battery report\n"
+"Press NVDA+Alt+B (NVDA+Shift+B on a computer that has no battery, such as a "
+"desktop PC) to hear the battery level of every Bluetooth device that Windows "
+"can read it from. Press twice to copy the report to the clipboard, three "
+"times to open the settings. Devices are announced in this order: connected, "
+"unknown, disconnected. You choose which of these groups are announced, and "
+"whether the connection type (Classic or LE) and the connection time are "
+"included. Only devices that report their battery level to Windows can be "
+"listed.\n"
+"\n"
+"Connection time and statistics\n"
+"The add-on measures how long each device is connected between two recharges, "
+"so you can see how long it really lasts on one charge. For a device that is "
+"often not connected, such as a keyboard that also uses a dongle, it can "
+"count the elapsed time instead. The statistics window shows, for every "
+"device and every recharge cycle, the connected time, the battery used, the "
+"drain rate, the estimated runtime on a full charge, the trend over the "
+"latest cycles and the estimated time left now. You can give devices names of "
+"your own, sort the lists and choose their columns, and export the statistics "
+"to the clipboard or to a file as plain text, Markdown, CSV, tab-separated "
+"values, JSON or HTML, or open them as a report in your web browser. Open the "
+"window from the settings, or assign a key to the command Open the Bluetooth "
+"battery statistics in the Input Gestures dialog. For a device whose battery "
+"level does not go down evenly, you can set the level at which you usually "
+"recharge it, so that the estimates stay realistic.\n"
+"\n"
+"Alerts\n"
+"Each device can have its own alerts: low battery, battery level drops, "
+"device connects and device disconnects. For true wireless earbuds, the add-"
+"on can also estimate how many charges are left in the charging case and warn "
+"you when to charge it. An alert can be spoken, played as a double beep, or "
+"played as a sound file, and the sound files can be replaced with your own. A "
+"low battery alert also shows a warning dialog. A background check runs every "
+"five minutes, and more often while a device has a connect or disconnect "
+"alert.\n"
+"\n"
+"Everything is set in NVDA settings, in the BT-Batterytics category. The "
+"records stay on your computer, in the NVDA configuration folder.\n"
+"\n"
+"Credits: the ideas and the testing with NVDA are by NVDATH. All the "
+"modifications to the code of the original add-on were written by Claude, an "
+"AI assistant made by Anthropic, following the instructions of NVDATH."
+msgstr "O BT-Batterytics informa o nível da bateria dos seus dispositivos Bluetooth, lembra quanto tempo cada um dura entre duas recargas e exibe estatísticas. É uma versão modificada do BlueToothBatteryReport, de haitun001 e cary-rowen.\n\nRelatório da bateria\nPressione NVDA+Alt+B (NVDA+Shift+B em computadores sem bateria, como desktops) para ouvir o nível de bateria de todos os dispositivos Bluetooth dos quais o Windows consegue lê-lo. Pressione duas vezes para copiar o relatório para a área de transferência e três vezes para abrir as configurações. A ordem é: conectados, desconhecidos, desconectados. Você escolhe quais grupos informar e se deseja incluir o tipo de conexão (Classic ou LE) e o tempo conectado. Só podem ser listados dispositivos que informam sua bateria ao Windows.\n\nTempo conectado e estatísticas\nO complemento mede quanto tempo cada dispositivo fica conectado entre duas recargas, mostrando a autonomia real por carga. Para dispositivos frequentemente desconectados, como teclados que também usam receptor, pode contar o tempo decorrido. A janela de estatísticas mostra, para cada dispositivo e ciclo, tempo conectado, bateria usada, taxa de consumo, autonomia estimada com carga completa, tendência dos últimos ciclos e estimativa do tempo restante. Você pode atribuir nomes, ordenar listas, escolher colunas e exportar para a área de transferência ou arquivo como texto simples, Markdown, CSV, valores separados por tabulação, JSON ou HTML, ou abrir um relatório no navegador. Abra a janela pelas configurações ou atribua uma tecla ao comando Abrir as estatísticas da bateria Bluetooth no diálogo Gestos de entrada. Se a bateria de um dispositivo diminui irregularmente, defina o nível em que costuma recarregá-lo para manter estimativas realistas.\n\nAlertas\nCada dispositivo pode ter seus próprios alertas: bateria fraca, quedas do nível, conexão e desconexão. Para fones totalmente sem fio, o complemento também estima quantas recargas restam no estojo e avisa quando carregá-lo. Um alerta pode ser falado, reproduzido como dois bipes ou como arquivo de som, que pode ser substituído pelo seu próprio. O alerta de bateria fraca também mostra um diálogo de aviso. A verificação em segundo plano ocorre a cada cinco minutos, com maior frequência enquanto houver alerta de conexão ou desconexão ativo.\n\nTudo é definido nas configurações do NVDA, na categoria BT-Batterytics. Os registros ficam no seu computador, na pasta de configuração do NVDA.\n\nCréditos: as ideias e os testes com NVDA são de NVDATH. Todas as modificações no código do complemento original foram escritas por Claude, assistente de IA da Anthropic, seguindo as instruções de NVDATH."
+
+#. CHANGELOG-START
+#: buildVars.py:75
+msgid ""
+"First release as BT-Batterytics, a modified version of "
+"BlueToothBatteryReport 0.4 by haitun001 and cary-rowen. It keeps its own "
+"single-file code: it does not include the refactoring of version 0.4.\n"
+"\n"
+"The ideas and the testing with NVDA are by NVDATH. All the modifications to "
+"the code were written by Claude, an AI assistant made by Anthropic, "
+"following the instructions of NVDATH.\n"
+"\n"
+"### Reporting\n"
+"\n"
+"- The report runs in a background thread, so NVDA does not freeze while the "
+"devices are scanned.\n"
+"- Press the hotkey once to read the report, twice to copy it to the "
+"clipboard, three times to open the settings.\n"
+"- The default hotkey is NVDA+Shift+B on a computer without a battery (a "
+"desktop PC) and NVDA+Alt+B on a computer with a battery (a laptop or "
+"tablet), so that NVDA's own battery command is left alone. The choice is "
+"made when NVDA starts. If Windows cannot tell, a battery is assumed.\n"
+"- A settings panel in NVDA settings. Devices to report can be chosen by "
+"status: connected, unknown, disconnected.\n"
+"- Optional connection type (Classic or LE) after the device name.\n"
+"- Optional connection duration, as reported by Windows (Bluetooth Classic "
+"devices only).\n"
+"- Optional total connection time since the last recharge, remembered across "
+"disconnections and NVDA restarts, which also works for LE devices.\n"
+"- Optional estimate of the charges left in the charging case of true "
+"wireless earbuds.\n"
+"- Names that you give to devices are used in the report and in the alerts.\n"
+"- Fixed: the Bluetooth radio handle could be closed twice while reading the "
+"connection states.\n"
+"\n"
+"### Connection time tracking\n"
+"\n"
+"- The connected time of each device is counted between two recharges. A "
+"recharge is detected when the battery rises at least 15 points above the "
+"lowest level of the cycle, so devices that never reach 100% work too.\n"
+"- Time is not counted while the device is disconnected, while the battery "
+"level rises, or over gaps longer than 15 minutes (for example while the "
+"computer sleeps).\n"
+"- For Bluetooth Classic devices the total is never smaller than the "
+"connection time reported by Windows.\n"
+"- Finished cycles are saved in `btBatterytics_usage.json` in the NVDA "
+"configuration folder. Limits can be set for the number of cycles kept per "
+"device and for their age.\n"
+"- Devices are identified by their Bluetooth address: devices with the same "
+"name do not share data, and a renamed device keeps its data.\n"
+"- The measurement of a device can be stopped without losing its data.\n"
+"- Devices that are not always connected, such as a tri-mode keyboard that "
+"also uses a dongle, can count the elapsed time since the last recharge "
+"instead of the connected time. It is chosen for each device in the Measuring "
+"menu. The time of a cycle runs until the battery level was last seen "
+"dropping, a recharge is placed halfway between two readings, and each cycle "
+"remembers how its time was counted.\n"
+"- Durations of two days or more are shown in days.\n"
+"- A usual recharge level for each device, for devices whose reported battery "
+"level does not go down evenly (for example a keyboard that stops working at "
+"55 to 60% and is recharged at about 70%). The estimates of the full charge "
+"and of the time left are then calculated down to that level instead of down "
+"to 0%.\n"
+"\n"
+"### Statistics window\n"
+"\n"
+"- Opened from the settings or by a command of the Input Gestures dialog (no "
+"gesture by default).\n"
+"- A summary list with one row per device and a cycle list. Both are virtual "
+"lists, so they stay fast with many cycles.\n"
+"- Summary columns: status, measuring, alerts, cycles, average, shortest, "
+"longest, full charge estimate, drain rate, recharge interval, last recharge, "
+"trend, time left estimate. Cycle columns: cycle, state, duration, battery, "
+"drain rate, full charge estimate, end.\n"
+"- In the cycle list only the cycle in progress of each device is shown. "
+"Space, double-click or the context menu expands or collapses its finished "
+"cycles.\n"
+"- Devices are listed in the order of the spoken report. F5 scans again and "
+"updates the window.\n"
+"- The columns of both lists can be shown, hidden and moved (Control+Shift+Up "
+"and Control+Shift+Down in the Choose columns dialog). The order is used to "
+"show, copy and export them.\n"
+"- Manual sort of the devices and of the finished cycles: Control+Shift+Up "
+"and Control+Shift+Down move a device, or a finished cycle of an expanded "
+"device. A new device is put first.\n"
+"- Control+Shift+Left and Control+Shift+Right move the two lists, and the "
+"window opens on the first one.\n"
+"- Context menu and keys (in the menu, the commands without a key come "
+"first): select (several rows, Control+Space, Control+A), copy a row or a "
+"device (Control+C, Control+Shift+C), delete a row or a device after a "
+"question (Control+Delete, Control+Shift+Delete), rename a device (F2), "
+"measure or not, choose the columns, sort the devices and the cycles (the "
+"choices are remembered), alerts of the device.\n"
+"- Export (Control+E) of the selected rows, the current device or all rows, "
+"copied to the clipboard or saved to a file, as plain text, Markdown, CSV, "
+"tab-separated values, JSON or HTML, or opened as an HTML report in the "
+"browser. Detailed values (exact seconds, percentages, ISO dates, device "
+"identity) are included by default. Only the standard library of Python is "
+"used.\n"
+"\n"
+"### Alerts\n"
+"\n"
+"- Low battery alert. The setting is the default for all devices, with a "
+"default level. Each device can follow it, have a level of its own (it alerts "
+"even if the default is off), or never alert. The choice is made in a dialog "
+"of the Alerts menu of the device.\n"
+"- Level drop alert for each device: alerts each time the battery has dropped "
+"by a number of points (10 by default).\n"
+"- Connect and disconnect alerts for each device. The devices are checked "
+"every few seconds while one of these alerts is on.\n"
+"- The alert methods are chosen once for all alerts and can be combined: "
+"speech (on by default), a double beep, and the sound of the alert, a .wav "
+"file of the `sounds` folder of the add-on (`lowBattery.wav`, "
+"`levelDrop.wav`, `deviceConnected.wav`, `deviceDisconnected.wav`, "
+"`chargingCase.wav`). A beep replaces a missing file.\n"
+"- The low battery alert also shows a warning dialog.\n"
+"- A level drop alert is not given together with a low battery alert of the "
+"same device, and the sounds of several alerts play one after another.\n"
+"- A Browse sound folder button in the settings opens the folder of the sound "
+"files, to replace them. The sounds that come with the add-on are from "
+"Pixabay, see the readme for the credits.\n"
+"- Charging case estimate for true wireless earbuds, off by default and set "
+"for each device. The add-on counts how many times the case charged the "
+"earbuds from the recharges it sees, and alerts when the earbuds are low and "
+"the case is nearly empty, so that you charge both together. After the alert, "
+"the next time the earbuds are seen recharged, a question asks whether you "
+"charged the case, and Yes counts from zero again (Mark case charged, "
+"Control+Shift+R, does the same at any time). The typical size of the case is "
+"learned from your rounds. It is an estimate, and works best if the earbuds "
+"are used mainly with this computer.\n"
+"\n"
+"### Changed\n"
+"\n"
+"- Renamed to BT-Batterytics (add-on ID `btBatterytics`). The data and the "
+"settings saved under the former name are taken over the first time the add-"
+"on runs.\n"
+"- The alert sound mode (beep or sound file) of earlier versions is replaced "
+"by the alert methods.\n"
+"- The \"Only report connected devices\" option of version 0.4 is replaced by "
+"one option for each status."
+msgstr "Primeira versão como BT-Batterytics, uma modificação do BlueToothBatteryReport 0.4 de haitun001 e cary-rowen. Mantém seu próprio código em arquivo único, sem incluir a refatoração da versão 0.4.\n\nAs ideias e os testes com NVDA são de NVDATH. Todas as modificações no código foram escritas por Claude, assistente de IA da Anthropic, seguindo as instruções de NVDATH.\n\nRelatórios\n\n• O relatório é executado em uma thread em segundo plano, para que o NVDA não congele durante a busca de dispositivos.\n• Pressione o atalho uma vez para ouvir o relatório, duas vezes para copiá-lo e três vezes para abrir as configurações.\n• O atalho padrão é NVDA+Shift+B em computadores sem bateria (desktops) e NVDA+Alt+B em computadores com bateria (notebooks ou tablets), preservando o comando de bateria do NVDA. A escolha ocorre ao iniciar o NVDA. Se o Windows não conseguir determinar, presume-se que há bateria.\n• Painel nas configurações do NVDA. É possível escolher dispositivos por status: conectados, desconhecidos ou desconectados.\n• Tipo de conexão opcional (Classic ou LE) após o nome.\n• Duração opcional da conexão informada pelo Windows (apenas Bluetooth Classic).\n• Tempo total conectado desde a última recarga opcional, preservado entre desconexões e reinícios do NVDA, também para LE.\n• Estimativa opcional das recargas restantes no estojo de fones totalmente sem fio.\n• Os nomes atribuídos aos dispositivos são usados no relatório e nos alertas.\n• Corrigido: o identificador do rádio Bluetooth podia ser fechado duas vezes ao ler os estados das conexões.\n\nAcompanhamento do tempo conectado\n\n• O tempo conectado de cada dispositivo é contado entre duas recargas. Uma recarga é detectada quando a bateria sobe pelo menos 15 pontos acima do menor nível do ciclo; funciona também em dispositivos que nunca chegam a 100%.\n• Não conta tempo desconectado, durante a subida da bateria, nem lacunas superiores a 15 minutos (por exemplo, durante a suspensão do computador).\n• Para Bluetooth Classic, o total nunca é menor que o tempo informado pelo Windows.\n• Ciclos concluídos são salvos em btBatterytics_usage.json na pasta de configuração do NVDA. Podem ser definidos limites de quantidade por dispositivo e de idade.\n• Os dispositivos são identificados pelo endereço Bluetooth: nomes iguais não compartilham dados e renomear não apaga dados.\n• A medição pode ser interrompida sem perder dados.\n• Dispositivos nem sempre conectados, como teclados de três modos que também usam receptor, podem contar o tempo decorrido desde a recarga em vez do tempo conectado. A escolha é por dispositivo no menu Medição. O ciclo termina no último momento em que a bateria foi vista caindo; a recarga é posicionada no meio de duas leituras; cada ciclo lembra como contou o tempo.\n• Durações de dois dias ou mais são mostradas em dias.\n• Nível habitual de recarga por dispositivo para baterias que não diminuem uniformemente (por exemplo, um teclado que para em 55 a 60% e é recarregado perto de 70%). As estimativas de carga completa e tempo restante passam a considerar esse nível em vez de 0%.\n\nJanela de estatísticas\n\n• Aberta pelas configurações ou pelo comando no diálogo Gestos de entrada (sem atalho padrão).\n• Lista de resumo com uma linha por dispositivo e lista de ciclos. Ambas são listas virtuais, mantendo a rapidez com muitos ciclos.\n• Colunas de resumo: status, medição, alertas, ciclos, média, mais curto, mais longo, estimativa de carga completa, taxa de consumo, intervalo de recarga, última recarga, tendência, estimativa restante. Colunas de ciclos: ciclo, estado, duração, bateria, taxa de consumo, estimativa de carga completa, término.\n• A lista de ciclos mostra inicialmente apenas o ciclo em andamento de cada dispositivo. Space, clique duplo ou menu de contexto expande ou recolhe os concluídos.\n• Os dispositivos seguem a ordem do relatório falado. F5 busca novamente e atualiza a janela.\n• As colunas de ambas as listas podem ser mostradas, ocultadas e movidas (Control+Shift+Seta para cima ou para baixo em Escolher colunas). A ordem é usada na exibição, cópia e exportação.\n• Ordenação manual de dispositivos e ciclos concluídos: Control+Shift+Seta para cima ou para baixo move um dispositivo ou um ciclo concluído de um dispositivo expandido. Novos dispositivos ficam primeiro.\n• Control+Shift+Seta para a esquerda e para a direita movem as listas; a janela abre na primeira.\n• Menu de contexto e teclas (comandos sem tecla vêm primeiro): selecionar (várias linhas, Control+Space, Control+A), copiar linha ou dispositivo (Control+C, Control+Shift+C), excluir linha ou dispositivo após confirmação (Control+Delete, Control+Shift+Delete), renomear (F2), medir ou não, escolher colunas, ordenar dispositivos e ciclos (opções lembradas), alertas do dispositivo.\n• Exportar (Control+E) linhas selecionadas, dispositivo atual ou todas as linhas para a área de transferência ou arquivo, como texto simples, Markdown, CSV, valores separados por tabulação, JSON ou HTML, ou abrir relatório HTML no navegador. Valores detalhados (segundos exatos, porcentagens, datas ISO, identificação do dispositivo) incluídos por padrão. Usa apenas a biblioteca padrão do Python.\n\nAlertas\n\n• Alerta de bateria fraca. A configuração é o padrão para todos os dispositivos, com nível padrão. Cada dispositivo pode segui-la, usar nível próprio (alerta mesmo com o padrão desativado) ou nunca alertar. Escolha no diálogo do menu Alertas do dispositivo.\n• Alerta de queda de nível por dispositivo: alerta a cada queda de determinado número de pontos (10 por padrão).\n• Alertas de conexão e desconexão por dispositivo. Verificação a cada poucos segundos enquanto um deles estiver ativo.\n• Métodos escolhidos uma vez para todos os alertas e combináveis: fala (ativada por padrão), dois bipes e som do alerta, arquivo .wav da pasta sounds (lowBattery.wav, levelDrop.wav, deviceConnected.wav, deviceDisconnected.wav, chargingCase.wav). Um bipe substitui arquivo ausente.\n• O alerta de bateria fraca também mostra um diálogo de aviso.\n• Não há alerta de queda de nível junto com o de bateria fraca do mesmo dispositivo; os sons de vários alertas tocam em sequência.\n• O botão Abrir pasta de sons nas configurações permite substituir os arquivos. Os sons incluídos são do Pixabay; créditos no README.\n• Estimativa do estojo de fones totalmente sem fio, desativada por padrão e definida por dispositivo. Conta as recargas fornecidas pelo estojo a partir das recargas observadas e alerta quando os fones estão fracos e o estojo quase vazio, para carregar ambos. Após o alerta, ao detectar nova recarga dos fones, pergunta se você carregou o estojo; Sim reinicia a contagem (Marcar estojo como carregado, Control+Shift+R, faz o mesmo a qualquer momento). A capacidade típica é aprendida com suas rodadas. É uma estimativa e funciona melhor com os fones usados principalmente neste computador.\n\nAlterações\n\n• Renomeado para BT-Batterytics (ID btBatterytics). Dados e configurações do nome anterior são incorporados na primeira execução.\n• O modo de som (bipe ou arquivo) de versões anteriores é substituído pelos métodos de alerta.\n• A opção “Informar apenas dispositivos conectados” da versão 0.4 é substituída por uma opção para cada status."
+

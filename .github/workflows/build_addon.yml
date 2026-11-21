@@ -39,6 +39,10 @@ jobs:
     - name: Code checks
       run: export PREK_SKIP=no-commit-to-branch,pyright; uv run prek run --all-files
 
+    # The tests need no NVDA: they use stubs of its modules (see tests/conftest.py).
+    - name: Tests
+      run: uv run pytest
+
     # On a tag, the tag must say the same version as buildVars.py. Without a tag, only the format is checked.
     - name: Check the version
       run: uv run python scripts/check_version.py "${{ github.ref_type == 'tag' && github.ref_name || '' }}"
